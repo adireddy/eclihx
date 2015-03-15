@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description name="Eclihx Plugin - Haxe" url="https://github.com/adireddy/eclihx/updates/">
+   <description name="Eclihx Plugin - Haxe" url="http://adireddy.github.io/eclihx/updates/">
       Eclihx is a plugin for developing in Haxe language within the Eclipse IDE.
 It supports Eclipse 3.5 and above.
    </description>
