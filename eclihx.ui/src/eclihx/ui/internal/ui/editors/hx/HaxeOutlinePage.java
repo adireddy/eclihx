@@ -29,7 +29,7 @@ public class HaxeOutlinePage extends ContentOutlinePage {
 	public void createControl(Composite parent) {
 		super.createControl(parent);
 		
-		TreeViewer viewer = getTreeViewer();
+		TreeViewer viewer= getTreeViewer();
 		viewer.setContentProvider(new OutlineContentProvider());
 		viewer.setLabelProvider(new OutlineLabelProvider());
 		viewer.addSelectionChangedListener(this);

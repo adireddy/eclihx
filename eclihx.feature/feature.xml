@@ -4,8 +4,8 @@
       label="Eclihx Plugin Feature"
       version="0.4.0.qualifier">
 
-   <description url="http://www.eclihx.org">
-      Plugin for developing in the haXe language (http://haxe.org/).
+   <description url="http://code.google.com/p/eclihx/">
+      Plugin for developing in the Haxe language (http://haxe.org/).
    </description>
 
    <copyright url="http://www.example.com/copyright">

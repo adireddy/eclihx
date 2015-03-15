@@ -21,6 +21,7 @@ public class HaxeElementsAdapterFactory implements IAdapterFactory {
 	 * (non-Javadoc)
 	 * @see org.eclipse.core.runtime.IAdapterFactory#getAdapter(java.lang.Object, java.lang.Class)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object getAdapter(Object adaptableObject, Class adapterType) {
 		

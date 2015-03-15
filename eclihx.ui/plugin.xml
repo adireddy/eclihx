@@ -11,25 +11,12 @@
          </adapter>
       </factory>
    </extension>
-     <extension
-           point="org.eclipse.core.runtime.products">
-        <product
-              application="eclihx.ui"
-              name="EclihX">
-        </product>
-     </extension>
-   <extension
-         point="org.eclipse.core.runtime.preferences">
-      <initializer
-            class="eclihx.ui.internal.ui.PreferencesInitializer">
-      </initializer>
-   </extension>
    <extension
          point="org.eclipse.ui.contexts">
       <context
-            description="Editing haXe Source Context"
+            description="Editing Haxe Source Context"
             id="eclihx.ui.haxeEditorScope"
-            name="Editing haXe Source"
+            name="Editing Haxe Source"
             parentId="org.eclipse.ui.textEditorScope">
       </context>
    </extension>
@@ -58,7 +45,7 @@
            extensions="hxml">
      </participant>
   </extension>
-  <extension
+   <extension
          point="org.eclipse.ui.preferencePages">
       <page
             class="eclihx.ui.internal.ui.preferences.EclihxMainPreferencePage"
@@ -74,24 +61,18 @@
             class="eclihx.ui.internal.ui.preferences.HaxeCompilerPreferencePage"
             id="eclihx.ui.internal.ui.preferences.HaxeCompilerPreferencePage"
             name="%hxCompilerPrefName"/>
-	   <page
-	         category="org.eclipse.jdt.ui.preferences.HaxeBasePreferencePage"
-	         class="eclihx.ui.internal.ui.preferences.HaxeColorPreferencePage"
-	         id="eclihx.ui.internal.ui.preferences.HaxeColorPreferencePage"
-	         name="Color">
-	   </page>
-	   <page
-	         category="org.eclipse.jdt.ui.preferences.HaxeBasePreferencePage"
-	         class="eclihx.ui.internal.ui.preferences.HaxeFormatOptionsPreferencePage"
-	         id="eclihx.ui.internal.ui.preferences.HaxeFormatOptionsPreferencePage"
-	         name="Format Options">
-	   </page>
-	   <page
-	         category="org.eclipse.jdt.ui.preferences.HaxeBasePreferencePage"
-	         class="eclihx.ui.internal.ui.preferences.HaxeTemplatesPreferencePage"
-	         id="eclihx.ui.internal.ui.preferences.HaxeTemplatesPreferencePage"
-	         name="%templates.pageName">
-	   </page>
+   <page
+         category="org.eclipse.jdt.ui.preferences.HaxeBasePreferencePage"
+         class="eclihx.ui.internal.ui.preferences.HaxeColorPreferencePage"
+         id="eclihx.ui.internal.ui.preferences.HaxeColorPreferencePage"
+         name="Color">
+   </page>
+   <page
+         category="org.eclipse.jdt.ui.preferences.HaxeBasePreferencePage"
+         class="eclihx.ui.internal.ui.preferences.HaxeFormatOptionsPreferencePage"
+         id="eclihx.ui.internal.ui.preferences.HaxeFormatOptionsPreferencePage"
+         name="Format Options">
+   </page>
    </extension>
  <extension
        point="org.eclipse.ui.perspectives">
@@ -214,7 +195,7 @@
           helpContextId="eclihx.ui.launch.haxe_launch_shortcut"
           icon="icons/h_app_s.gif"
           id="eclihx.ui.launch.HaxeLaunchShortcut"
-          label="haXe application"
+          label="Haxe application"
           modes="run">
        <contextualLaunch>
           <enablement>
@@ -224,9 +205,12 @@
                 <iterate>
                 <or>
                    <test
-                         forcePluginActivation="true"
                          property="org.eclipse.debug.ui.matchesPattern"
                          value="*.hxml">
+                   </test>
+                   <test
+                         property="org.eclipse.debug.ui.matchesPattern"
+                         value="*.hx">
                    </test></or>
                 </iterate>
              </with>
@@ -246,17 +230,9 @@
           allowMultiple="false"
           category="eclihx.ui.HaxeCategory"
           class="eclihx.ui.internal.ui.views.HaxeExplorerView"
-          icon="icons/eclihx-logo-small.gif"
+          icon="icons/eclihx-logo-small.png"
           id="eclihx.ui.internal.ui.views.PackageExplorerView"
           name="%haxeViews.packageExplorerName">
-    </view>
-    <view
-          allowMultiple="false"
-          category="org.eclipse.ui"
-          class="org.eclipse.ui.texteditor.templates.TemplatesView"
-          icon="icons/templates.gif"
-          id="org.eclipse.ui.texteditor.TemplatesView"
-          name="%haxeViews.templatesName">
     </view>
  </extension>
  <extension
@@ -275,11 +251,11 @@
             id="eclihx.ui.launch.HaxetLaunchConfigurationTabGroup"
             type="eclihx.launching.HaxeLaunchDelegate">
          <launchMode
-               description="haXe launch mode"
+               description="Haxe launch mode"
                mode="run">
          </launchMode>
          <launchMode
-               description="haXe debug mode"
+               description="Haxe debug mode"
                mode="debug"
                perspective="org.eclipse.debug.ui.DebugPerspective">
          </launchMode>
@@ -330,7 +306,7 @@
             contentProvider="eclihx.ui.internal.navigator.HaxeNavigatorContentProvider"
             id="eclihx.ui.internal.ui.utils.HaxeElementsContentProvider"
             labelProvider="eclihx.ui.internal.navigator.HaxeNavigatorLabelProvider"
-            name="haXe elements"
+            name="Haxe elements"
             priority="normal">
          <triggerPoints>
             <or>
@@ -411,13 +387,6 @@
                <instanceof
                      value="eclihx.core.haxe.model.core.IHaxeProject">
                </instanceof>
-               <adapt
-                     type="org.eclipse.core.resources.IProject">
-                  <test
-                        property="org.eclipse.core.resources.projectNature"
-                        value="eclihx.core.haxenature">
-                  </test>
-               </adapt>
             </or></enablement>
       </commonWizard>
       <commonWizard
@@ -473,6 +442,13 @@
          <enablement></enablement>
       </commonWizard>
    </extension>
+     <extension
+           point="org.eclipse.core.runtime.products">
+        <product
+              application="eclihx.ui"
+              name="Eclihx">
+        </product>
+     </extension>
      <extension
            point="org.eclipse.core.filebuffers.annotationModelCreation">
         <factory
@@ -564,26 +540,5 @@
            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
            sequence="M1+/">
      </key>
-  </extension>
-  <extension
-        point="org.eclipse.ui.editors.templates">
-     <contextTypeRegistry
-           id="eclihx.ui.internal.ui.editors.HXEditor"></contextTypeRegistry>
-     <include
-           file="templates/default-templates.xml"
-           translations="templates/default-templates.properties">
-     </include>
-     <contextType
-           class="eclihx.ui.internal.ui.editors.templates.HaxeContextTypes"
-           id="haxe-statements"
-           name="%templates.contextTypes.haxeStatements"
-           registryId="eclihx.ui.internal.ui.editors.HXEditor">
-     </contextType>
-     <contextType
-           class="eclihx.ui.internal.ui.editors.templates.HaxeContextTypes"
-           id="haxe-members"
-           name="%templates.contextTypes.haxeMembers"
-           registryId="eclihx.ui.internal.ui.editors.HXEditor">
-     </contextType>
   </extension>
 </plugin>

@@ -18,12 +18,11 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.console;bundle-version="3.3.0",
  org.eclipse.ltk.ui.refactoring,
  org.eclipse.ui.navigator.resources,
- org.eclipse.ui.views
+ org.eclipse.ui.views;bundle-version="3.5.0"
 Import-Package: org.eclipse.ui.dialogs,
  org.eclipse.ui.wizards.newresource
 Export-Package: eclihx.ui,
  eclihx.ui.internal.ui,
- eclihx.ui.internal.ui.editors.hx;x-friends:="eclihx.tests,eclihx.tests.ui",
  eclihx.ui.internal.ui.utils,
  eclihx.ui.internal.ui.views,
  eclihx.ui.internal.ui.wizards;x-friends:="eclihx.tests",
@@ -33,4 +32,3 @@ Export-Package: eclihx.ui,
  eclihx.ui.wizards
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-Vendor: www.eclihx.org

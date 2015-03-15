@@ -109,18 +109,17 @@ public final class HaxeSourceFolder extends HaxeElement
 	 * @param packageName the name of the package.
 	 * @param monitor monitor for the operation. <code>null</code> 
 	 *        value is allowed.
-	 * @return created package.
 	 * 
 	 * @throws CoreException if there are some errors during folders creation.
-	 * 
 	 */
-	@Override
-	public IHaxePackage createPackage(String packageName, IProgressMonitor monitor) throws CoreException {
+	public void createPackage(
+			String packageName, IProgressMonitor monitor) throws CoreException
+	{
 		String[] paths = packageName.split("\\.");
 		
 		IContainer container = fFolder;
 		
-		for (String folderPath : paths)
+		for(String folderPath : paths)
 		{
 			IFolder folder = container.getFolder(new Path(folderPath));
 			
@@ -130,8 +129,6 @@ public final class HaxeSourceFolder extends HaxeElement
 			
 			container = folder;
 		}
-		
-		return getPackage(container.getFolder(new Path("")));
 	}
 
 	/*
@@ -160,11 +157,11 @@ public final class HaxeSourceFolder extends HaxeElement
 			
 			for (IResource resource : resources) {
 				if (resource.getType() == IResource.FOLDER) {
-					if (HaxeElementValidator.validatePackageName(resource.getName()).isOK()) {
-						IHaxePackage curPackage = new HaxePackage(this, (IFolder)resource);
-						haxePackages.add(curPackage);
-						haxePackages.addAll(Arrays.asList(curPackage.getChildrenPackages()));
-					}
+					IHaxePackage curPackage = new HaxePackage(
+							this, (IFolder)resource);
+					haxePackages.add(curPackage);
+					haxePackages.addAll(
+							Arrays.asList(curPackage.getChildrenPackages()));					
 				}
 			}
 			

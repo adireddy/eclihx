@@ -11,11 +11,12 @@ import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.IStatusHandler;
 
-import eclihx.core.haxe.HaxeCompilerResolver;
+import eclihx.core.EclihxCore;
 import eclihx.core.haxe.HaxeLauncher;
 import eclihx.core.haxe.internal.configuration.HaxeConfiguration;
 import eclihx.core.haxe.internal.configuration.HaxeConfigurationList;
 import eclihx.core.haxe.internal.parser.BuildParamParser;
+import eclihx.core.haxe.model.core.IHaxeProject;
 import eclihx.core.util.OSUtil;
 import eclihx.core.util.console.parser.core.ParseError;
 import eclihx.launching.EclihxLauncher;
@@ -60,7 +61,7 @@ public class HaxeRunner implements IHaxeRunner {
 	private void validateConfiguration(HaxeRunnerConfiguration config) 
 			throws CoreException {
 		
-		IStatus status = OSUtil.validateCompilerPath(getLaunchCompilerPath(config));
+		IStatus status = OSUtil.validateCompilerPath(config.getCompilerPath());
 		if (!status.isOK()) {
 			throwState(IStatus.ERROR, IStatus.ERROR, status.getMessage());
 		}
@@ -98,25 +99,12 @@ public class HaxeRunner implements IHaxeRunner {
         }
         
         final HaxeLauncher launcher = new HaxeLauncher();
-        
-        launcher.run(configuration.getBuildFile(), launch, getLaunchCompilerPath(configuration), workingDirectory);
+        launcher.run(configuration.getBuildFile(), launch, configuration.getCompilerPath(), workingDirectory);
         
         if (!launcher.getErrorString().isEmpty()) {
         	return launcher.getErrorString();
         }        
         
         return "Building complete.\n" + launcher.getOutputString();
-	}
-	
-	/**
-	 * Get the compiler path for given configuration.
-	 * @param configuration configuration.
-	 * @return a special or default compiler path.
-	 */
-	public static String getLaunchCompilerPath(HaxeRunnerConfiguration configuration) {
-		// TODO 5: Implement project scope compiler setting
-        return configuration.isNonDefaultCompiler() ? 
-        		configuration.getCompilerPath() :
-        		HaxeCompilerResolver.getDefaultGlobalCompiler();
 	}
 }

@@ -1,11 +1,9 @@
 package eclihx.ui.internal.ui;
 
-import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-import org.osgi.service.prefs.BackingStoreException;
 
 import eclihx.core.EclihxLogger;
 import eclihx.core.IPluginLogger;
@@ -41,8 +39,12 @@ public class EclihxUIPlugin extends AbstractUIPlugin {
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
 	 */
 	@Override
+	@SuppressWarnings({"deprecation"})
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
+				
+		//FIXME 9 remove it from here
+		initializeDefaultPluginPreferences();
 	}
 
 	/*
@@ -103,19 +105,4 @@ public class EclihxUIPlugin extends AbstractUIPlugin {
 		
 		return logger;
 	}
-	
-	/**
-	 * Flushes the instance scope of this plug-in.
-	 * 
-	 * @since 3.7
-	 */
-	public static void flushInstanceScope() {
-		try {
-			InstanceScope.INSTANCE.getNode(PLUGIN_ID).flush();
-		} catch (BackingStoreException e) {
-			getLogHelper().logError(e);
-		}
-	}
-	
-	
 }

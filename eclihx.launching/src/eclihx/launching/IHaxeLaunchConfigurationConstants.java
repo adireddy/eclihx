@@ -6,19 +6,13 @@ package eclihx.launching;
 public interface IHaxeLaunchConfigurationConstants {
 
 	/**
-	 * Should default compiler be used or use an alternative haxe compiler.
-	 */
-	public static final String IS_ALTERNATIVE_COMPILER = 
-			EclihxLauncher.PLUGIN_ID + ".is_alternative_compiler";
-	
-	/**
-	 * haXe compiler path. 
+	 * Haxe compiler path. 
 	 */
 	public static final String HAXE_COMPILER_PATH = 
 			EclihxLauncher.PLUGIN_ID + ".haxe_compiler";
 	
 	/**
-	 * haXe compiler attributes
+	 * Haxe compiler attributes
 	 */
 	public static final String ATTR_ARGUMENTS = 
 			EclihxLauncher.PLUGIN_ID + ".haxe_arguments";

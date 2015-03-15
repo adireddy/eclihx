@@ -132,8 +132,14 @@ public class HaxeLaunchDelegate extends LaunchConfigurationDelegate{
 		monitor.beginTask("Launching...", 1);
 		
 		try {
-			HaxeRunnerConfiguration haxeRunnerConfiguration = HaxeRunnerConfiguration.wrap(configuration);
-			IHaxeRunner runner = chooseHaxeRunner(mode, haxeRunnerConfiguration);			
+			
+			HaxeRunnerConfiguration haxeRunnerConfiguration = 
+				new HaxeRunnerConfiguration();
+			
+			haxeRunnerConfiguration.load(configuration);
+			
+			IHaxeRunner runner = chooseHaxeRunner(
+					mode, haxeRunnerConfiguration);			
 			
 			String output = 
 					runner.run(haxeRunnerConfiguration, launch, monitor);

@@ -115,48 +115,19 @@ public final class CodeFormatter {
 	/**
 	 * Format text.
 	 * @param text text to format.
-	 * @param options set of options for the formatter.
-	 * @return formatted text.
-	 */
-	public static String formatAll(
-			final String text, 
-			final FormatOptions options) {
-		
-		return format(text, options, 0, false);
-	}
-	
-	/**
-	 * Format text.
-	 * 
-	 * @param text text to format.
-	 * @param options set of options for the formatter.
-	 * @param lineIndentation pattern for line indentation.
-	 * @return formatted text.
-	 */
-	public static String formatSelection(
-			final String text, 
-			final FormatOptions options,
-			final String lineIndentation) {
-		
-		return format(text, options, getIndentationLevel(lineIndentation, singleIndentStr(options)), true);
-	}
-	
-	/**
-	 * Format text.
-	 * @param text text to format.
 	 * @param options set of options for the formatter
-	 * @param initIndentationLevel level of text selection indentation
-	 * @param firstLineAlreadyIndented is first line indented (useful for formatting selections)
 	 * @return formatted text.
 	 */
 	public static String format(
 			final String text, 
-			final FormatOptions options,
-			final int initIndentationLevel,
-			final boolean firstLineAlreadyIndented) {
+			final FormatOptions options) {
+		
+		// Store indentation string for one gap. 
+		String indentationString = options.insertTabs ? "\t" : 
+								   multiply(" ", options.intendWidth);
 		
 		// Global variable o count number of indentation for the current code.
-		int numberOfIndentation = initIndentationLevel;
+		int numberOfIndentation = 0;
 		
 		// This variable is a buffer for the method result		
 		final StringBuilder outputBuilder = new StringBuilder();
@@ -164,14 +135,18 @@ public final class CodeFormatter {
 		// This variable will accumulate one line of the output.
 		final StringBuilder outputLineBuffer = new StringBuilder();
 		
+		// Ask algorithm to omit one line break because it was placed manually 
+		// before. This is a little hack for working with numberOfIndentation. 
+		boolean omitLineBreak = false;
+		
 		for (int index = 0; index < text.length(); ++index) {
 			
 			char currentChar = text.charAt(index); 
 			
 			switch (currentChar) {
 				case '{':
-					// Nothing in the current line or we shouldn't place forced line break
-					if (outputLineBuffer.toString().trim().isEmpty() || !options.bracketNewLines) {
+					if (outputLineBuffer.toString().trim().isEmpty() ||
+						!options.bracketNewLines) {
 						
 						// Insert additional space before the brace
 						if (!checkChar(text, index-1, ' ')) {
@@ -186,130 +161,110 @@ public final class CodeFormatter {
 							++index;
 						}						
 						
-						appendNewLine(outputLineBuffer, index, text);
+						omitLineBreak = existValidNewLine(text, index+1);
+						
+						// Write everything on one line
+						outputBuilder.append(
+								generateLine(
+										outputLineBuffer, 
+										options.indentOnEmptyLines, 
+										numberOfIndentation, 
+										indentationString));
 						
 					} else {
 						// Write line content first
-						outputLineBuffer.append('\n');
-						numberOfIndentation = flushLineBuffer(outputBuilder, outputLineBuffer, index == (text.length() - 1), options, 
-								numberOfIndentation, firstLineAlreadyIndented);
+						outputBuilder.append(
+								generateLine(
+										outputLineBuffer, 
+										options.indentOnEmptyLines, 
+										numberOfIndentation, 
+										indentationString));
 						
-						outputLineBuffer.append('{');
+						omitLineBreak = existValidNewLine(text, index+1);
 						
-						appendNewLine(outputLineBuffer, index, text);
+						// After that append brace to output
+						outputBuilder.append(
+								generateLine(
+										"{", 
+										options.indentOnEmptyLines, 
+										numberOfIndentation, 
+										indentationString));
+					
 					}
 					
-					numberOfIndentation = flushLineBuffer(outputBuilder, outputLineBuffer, index == (text.length() - 1), options, 
-							 numberOfIndentation, firstLineAlreadyIndented);
+					++numberOfIndentation;
 					
 					break;
 					
 				case '}':
 					if (!outputLineBuffer.toString().trim().isEmpty()) {
-						appendNewLine(outputLineBuffer, index, text);
-						numberOfIndentation = flushLineBuffer(outputBuilder, outputLineBuffer, index == (text.length() - 1), options, 
-								numberOfIndentation, firstLineAlreadyIndented);
+						outputBuilder.append(
+								generateLine(
+										outputLineBuffer, 
+										options.indentOnEmptyLines, 
+										numberOfIndentation, 
+										indentationString));
 					}
 					
-					outputLineBuffer.append('}');
+					--numberOfIndentation;
 					
-					if (options.bracketNewLines || !followedBy(text, index + 1, "else")) {
-						appendNewLine(outputLineBuffer, index, text);
-					}
+					omitLineBreak = existValidNewLine(text, index+1);
 					
-					numberOfIndentation = flushLineBuffer(outputBuilder, outputLineBuffer, index == (text.length() - 1), options, 
-							numberOfIndentation, firstLineAlreadyIndented);
+					outputBuilder.append(
+							generateLine(
+									"}", 
+									options.indentOnEmptyLines, 
+									numberOfIndentation, 
+									indentationString));
 					
 					break;
 					
-				case ';':					
+				case ';':
+					
 					outputLineBuffer.append(currentChar);
 					
-					if (options.oneOperatorOnLine) {	
-						appendNewLine(outputLineBuffer, index, text);
+					if (options.oneOperatorOnLine) {
+						
+						// Check that there are no valid new-line char in the
+						// original text and we place it manually.
+						omitLineBreak = existValidNewLine(text, index+1);
+							
+						outputBuilder.append(
+								generateLine(
+										outputLineBuffer, 
+										options.indentOnEmptyLines, 
+										numberOfIndentation, 
+										indentationString));
+					}
+					break;
+					
+				case '\n':
+					if (omitLineBreak) {
+						outputLineBuffer.delete(0, outputLineBuffer.length());
+						omitLineBreak = false;
+					} else {
+					
+						// Write down the buffered line
+						outputBuilder.append(
+								generateLine(
+										outputLineBuffer, 
+										options.indentOnEmptyLines, 
+										numberOfIndentation, 
+										indentationString));
 					}
 					
-					numberOfIndentation = flushLineBuffer(outputBuilder, outputLineBuffer, index == (text.length() - 1), options, 
-							numberOfIndentation, firstLineAlreadyIndented);				
 					break;
 					
 				default: 
 					outputLineBuffer.append(currentChar);
-					numberOfIndentation = flushLineBuffer(outputBuilder, outputLineBuffer, index == (text.length() - 1), options, 
-							numberOfIndentation, firstLineAlreadyIndented);
 					break;
 			}
 			
-
 		}
 		
 		return outputBuilder.toString();
 	}
 	
-	static private void appendNewLine(StringBuilder lineBuilder, int index, String text) {
-		if ((index != text.length() - 1) && !existValidNewLine(text, index + 1)) {
-			lineBuilder.append('\n');
-		}
-	}
-	
-	static private int flushLineBuffer(StringBuilder outputBuilder, StringBuilder lineBuilder, boolean forced, FormatOptions options, 
-			int indentLevel, boolean firstLineIsIndented) {
-		// Flush line buffer if necessary
-		if (finishedWithEndLine(lineBuilder) || forced) {
-			final String line = lineBuilder.toString().trim();
-			
-			if (line.length() != 0 || options.isIndentOnEmptyLines()) {
-				if (outputBuilder.length() != 0 || !firstLineIsIndented) {
-					outputBuilder.append(multiply(singleIndentStr(options), newIndentLevelBefore(line, indentLevel)));
-				}
-			}
-			
-			outputBuilder.append(line);
-			
-			if (finishedWithEndLine(lineBuilder)) {
-				outputBuilder.append('\n');
-				
-				if (forced) {
-					outputBuilder.append(multiply(singleIndentStr(options), newIndentLevelAfter(line, indentLevel)));
-				}
-			}
-			
-			lineBuilder.delete(0, lineBuilder.length());
-			
-			return newIndentLevelAfter(line, indentLevel);
-		}
-		
-		return indentLevel;
-	}
-	
-	static private boolean finishedWithEndLine(StringBuilder builder) {
-		return builder.charAt(builder.length() - 1) == '\n';
-	}
-	
-	static private int newIndentLevelBefore(String trimmedLine, int indentLevel) {
-		if (trimmedLine.startsWith("}")) {
-			indentLevel--;
-		}
-		
-		if ((trimmedLine.startsWith("case") || trimmedLine.startsWith("default")) && trimmedLine.endsWith(":")) {
-			indentLevel--;
-		}
-		
-		return indentLevel;
-	}
-	
-	static private int newIndentLevelAfter(String trimmedLine, int indentLevel) {
-		if (trimmedLine.startsWith("}")) {
-			indentLevel--;
-		}
-		
-		if (trimmedLine.endsWith("{")) {
-			indentLevel++;
-		}
-		
-		return indentLevel;
-	}
-
 	/**
 	 * Method checks there is exist new-line char separated from the 
 	 * specified place only with spaces and tab chars.
@@ -358,14 +313,56 @@ public final class CodeFormatter {
 		return index >= 0 && index < str.length() && str.charAt(index) == ch;			
 	}
 	
-	static private boolean followedBy(String str, int index, String pattern) {
-		while (index < str.length() && Character.isWhitespace(str.charAt(index))) {
-			++index;
+	/**
+	 * Generate one line of the new text.
+	 * @param content the string with the line content.
+	 * @param indentOnEmptyLines flag with the info should be 
+	 *        indentation done on the empty lines.
+	 * @param numberOfIndentation number of indentations
+	 * @param indentationString string for one indentation.
+	 * @return generated line.
+	 */
+	static private String generateLine(
+			String content, 
+			boolean indentOnEmptyLines,
+			int numberOfIndentation, 
+			String indentationString) {
+		
+		String trimmedLine = content.trim();
+		
+		if (trimmedLine.isEmpty() && !indentOnEmptyLines) {
+			return "\n";
 		}
 		
-		return str.startsWith(pattern, index);
+		return multiply(indentationString, numberOfIndentation) + 
+				trimmedLine + "\n";
 	}
+	
+	/**
+	 * Generate one line of the new text. This method will also reset the 
+	 * StringBuilder with the content.
+	 * @param contentBuilder builder with the line content.
+	 * @param indentOnEmptyLines flag with the info should be 
+	 *        indentation done on the empty lines.
+	 * @param numberOfIndentation number of indentations
+	 * @param indentationString string for one indentation.
+	 * @return generated line.
+	 */
+	static private String generateLine(
+			StringBuilder contentBuilder, 
+			boolean indentOnEmptyLines,
+			int numberOfIndentation, 
+			String indentationString) {
 		
+		String line = contentBuilder.toString();
+		
+		// Reset the content builder
+		contentBuilder.delete(0, contentBuilder.length());
+		
+		return generateLine(line, indentOnEmptyLines, 
+				numberOfIndentation, indentationString);
+	}
+	
 	/**
 	 * This method multiplies the strings.
      *
@@ -376,7 +373,7 @@ public final class CodeFormatter {
 	 *        
 	 * @return Multiplied string.
 	 */
-	static public String multiply(String str, int number) {
+	static private String multiply(String str, int number) {
 		
 		StringBuilder newStrBuilder = new StringBuilder();
 		
@@ -385,27 +382,5 @@ public final class CodeFormatter {
 		}
 		
 		return newStrBuilder.toString();
-	}
-	
-	/**
-	 * Get line indent pattern from options.
-	 * @param options format options
-	 * @return Line indent pattern from options.
-	 */
-	public static String singleIndentStr(final FormatOptions options) {
-		return options.insertTabs ? "\t" : 
-								   multiply(" ", options.intendWidth);
-	} 
-	
-	private static int getIndentationLevel(String lineIndentation, String singleIndentStr) {
-		int offset = 0;
-		int level = 0;
-		
-		while (lineIndentation.startsWith(singleIndentStr, offset)) {
-			offset += singleIndentStr.length();
-			level++;
-		}
-
-		return level;
 	}
 }

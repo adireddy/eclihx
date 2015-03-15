@@ -1,6 +1,5 @@
 package eclihx.core.haxe.internal.configuration;
 
-import java.io.File;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -92,13 +91,8 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 	/**
 	 * Source directory configuration (-cp).
 	 */
-	private final ArrayList<String> sourceDirectories = 
-			new ArrayList<String>();
-	
-	/**
-	 * Commands which should be done after compilation.
-	 */
-	private final LinkedList<String> cmdCommands = new LinkedList<String>();
+	private final LinkedList<String> sourceDirectories = 
+			new LinkedList<String>();
 
 	/**
 	 * Name of the startup class (-main).
@@ -182,6 +176,11 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 	 */
 	private boolean promptOnErrorMode;
 
+	/**
+	 * Command which should be done after compilation.
+	 */
+	private String cmdCommand;
+	
 	/**
 	 * No traces mode state.
 	 */
@@ -453,35 +452,6 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 	public Collection<String> getMacroCalls() {
 		return macroCalls;
 	}
-	
-	/**
-	 * Adds command for execution after compilation.
-	 * 
-	 * @param command to execute
-	 */
-	public void addCmdCommand(String command) {
-		if (command == null || command.isEmpty()) {
-			throw new InvalidParameterException("cammand can't be null or empty");
-		}
-		
-		cmdCommands.add(command);
-	}
-	
-	/**
-	 * Removes all cmd commands
-	 */
-	public void cleanCmdCommands() {
-		cmdCommands.clear();
-	}
-	
-	/**
-	 * Get the cmd commands calls.
-	 * 
-	 * @return list of cmd commands in configuration.
-	 */
-	public Collection<String> getCmdCommands() {
-		return cmdCommands;
-	}
 
 	/**
 	 * Checks if configuration has some compilation flag.
@@ -707,6 +677,15 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 	}
 
 	/**
+	 * Sets command for execution after compilation.
+	 * 
+	 * @param command to execute
+	 */
+	public void setCmdCommand(String command) {
+		cmdCommand = command;
+	}
+
+	/**
 	 * Enables no-traces mode.
 	 */
 	public void enableNoTracesMode() {
@@ -872,11 +851,11 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 				HaxePreferencesManager.PARAM_PREFIX_PROMT_ERROR_MODE_FLAG,
 				promptOnErrorMode));
 
-		// CMD commands
-		for (String cmdCommand : cmdCommands) {
+		// CMD command
+		if (cmdCommand != null) {
 			outputBuilder.append(generateParameter(
 					HaxePreferencesManager.PARAM_PREFIX_CMD_COMMAND,
-					OSUtil.quoteCompoundPath(cmdCommand)));
+					cmdCommand));
 		}
 
 		// No traces mode state
@@ -991,29 +970,5 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 		
 		Assert.isTrue(false);
 		return null;
-	}
-	
-	/**
-	 * Make all paths in configuration absolute.
-	 * 
-	 * @param directory directory for resolving relative paths.
-	 */
-	public void makePathsAbsolute(File directory) {
-		
-		ArrayList<String> tmpDirectories = new ArrayList<String>();
-		for (String sourcePath : sourceDirectories) {
-			File sourceDir = new File(sourcePath);
-			
-			if (sourceDir.isAbsolute()) {
-				tmpDirectories.add(sourceDir.getAbsolutePath());
-			} else {
-				tmpDirectories.add((new File(directory, sourcePath)).getAbsolutePath());
-			}
-		}
-		
-		sourceDirectories.clear();
-		sourceDirectories.addAll(tmpDirectories);
-		
-		// TODO 5: Do for other paths in configuration.
 	}
 }

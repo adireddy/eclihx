@@ -2,12 +2,9 @@ package eclihx.ui.internal.ui.editors.hx;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.core.runtime.Assert;
-import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.ITextViewer;
 import org.eclipse.jface.text.contentassist.CompletionProposal;
 import org.eclipse.jface.text.contentassist.ContentAssistEvent;
@@ -17,26 +14,24 @@ import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
+import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.console.MessageConsole;
+import org.eclipse.ui.IFileEditorInput;
 
-import eclihx.core.haxe.contentassist.ContentAssistResult;
-import eclihx.core.haxe.contentassist.ContentInfo;
-import eclihx.core.haxe.contentassist.HaxeContentAssistManager;
-import eclihx.core.haxe.contentassist.HaxeContentAssistManager.TipsEvaluationException;
+import eclihx.core.EclihxCore;
+import eclihx.core.haxe.internal.ContentInfo;
+import eclihx.core.haxe.internal.HaxeContextAssistManager;
+import eclihx.core.haxe.internal.HaxeContextAssistManager.TipsEvaluationException;
 import eclihx.core.haxe.internal.KeywordManager;
+import eclihx.core.haxe.model.core.IHaxeElement;
 import eclihx.core.haxe.model.core.IHaxeSourceFile;
 import eclihx.ui.PluginImages;
 import eclihx.ui.internal.ui.EclihxUIPlugin;
-import eclihx.ui.utils.ConsoleViewHelper;
 
 /**
  * Content assist for the Haxe code.
  */
 public final class HXContextAssist implements IContentAssistProcessor, ICompletionListener {
-	
-	private static final HXTemplateCompletionProcessor templateProcessor = 
-			new HXTemplateCompletionProcessor();
 	
 	/**
 	 * A very simple context which invalidates information after typing several
@@ -61,7 +56,7 @@ public final class HXContextAssist implements IContentAssistProcessor, ICompleti
 	 * Characters for auto activation proposal computation.
 	 */
 	private static final char[] VALID_HAXE_PROPOSALS_CHARS = new char[] { '.' };
-	private static final char[] VALID_HAXE_INFO_CHARS = new char[] { '(', ',' };
+	private static final char[] VALID_HAXE_INFO_CHARS = new char[] { '(' };
 	
 	
 	/**
@@ -229,17 +224,23 @@ public final class HXContextAssist implements IContentAssistProcessor, ICompleti
 	}
 	
 	/**
-	 * Get haxe identifier prefix.
-	 * @param viewer text viewer.
-	 * @param offset current offset.
-	 * @return an identifier.
+	 * Gets the {@link IHaxeSourceFile} from the input. If input has another
+	 * source this method will return null.
+	 * 
+	 * @param input the editor input.
+	 * @return {@link IHaxeSourceFile} object or <code>null</code>.
 	 */
-	public static String getIndentifierPrefix(ITextViewer viewer, int offset) {
-		final String text = viewer.getDocument().get();
-		
-		final int identOffset = getIdentifierStartOffset(text, offset);		
-		Assert.isTrue(identOffset <= offset);
-		return text.substring(identOffset, offset);
+	private IHaxeSourceFile getHaxeSourceFile(IEditorInput input) {
+		if (input instanceof IFileEditorInput) {
+			IHaxeElement haxeElement = EclihxCore.getDefault().getHaxeWorkspace().getHaxeElement(
+							((IFileEditorInput) input).getFile());
+
+			if (haxeElement instanceof IHaxeSourceFile) {
+				return (IHaxeSourceFile) haxeElement;
+			}
+		}
+
+		return null;
 	}
 	
 	/**
@@ -249,7 +250,7 @@ public final class HXContextAssist implements IContentAssistProcessor, ICompleti
 	 * @param offset 
 	 * @return
 	 */
-	private static int getIdentifierStartOffset(String text, int offset) {
+	private int getIdentifierStartOffset(String text, int offset) {
 		int identStartOffset = offset;
 		
 		while ((identStartOffset != 0) && 
@@ -260,7 +261,6 @@ public final class HXContextAssist implements IContentAssistProcessor, ICompleti
 			
 		return identStartOffset;
 	}
-
 	
 	/**
 	 * Get the information from the Haxe compiler.
@@ -273,49 +273,30 @@ public final class HXContextAssist implements IContentAssistProcessor, ICompleti
 		// Get current file
 		IEditorPart editor = EclihxUIPlugin.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		
+
 		// Save the file
 		// TODO 6: fix it. For example there should be a separate storage for 
 		// the current file.		
 		editor.doSave(null);
 		
-		IHaxeSourceFile haxeFile = ConverterHelper.getHaxeSourceFile(editor.getEditorInput());
+		IHaxeSourceFile haxeFile = getHaxeSourceFile(editor.getEditorInput());
 		
 		List<ContentInfo> tips = new ArrayList<ContentInfo>();
 		
-		MessageConsole console = ConsoleViewHelper.findConsole("EclihxContextAsssit");
-		console.clearConsole();
-		
 		if (haxeFile != null) {
 			try {
+				tips.addAll(HaxeContextAssistManager.getTips(haxeFile, offset));
 				
-				tips.addAll(showErrorsInConsole(console, HaxeContentAssistManager.getTips(
-						haxeFile, 
-						viewer.getDocument().get(),
-						offset)));
-				
-				// If previous symbol is space add class tips to the result
 				if (offset == 0 || Character.isWhitespace(viewer.getDocument().get().charAt(offset - 1))) {
-					tips.addAll(showErrorsInConsole(console, 
-							HaxeContentAssistManager.getClassTips(haxeFile.getPackage())));
+					tips.addAll(HaxeContextAssistManager.getClassTips(haxeFile.getPackage()));
 				}
-				
 			} catch (TipsEvaluationException e) {
-				console.activate();
-				console.newMessageStream().println(e.getMessage());				
+				EclihxUIPlugin.getLogHelper().logError(e);
+				Assert.isTrue(false);
 			}
 		}
 		
 		return tips;
-	}
-	
-	private Collection<ContentInfo> showErrorsInConsole(MessageConsole console, ContentAssistResult result) {
-		if (result.hasErrors()) {
-			console.newMessageStream().println(result.getErrors());		
-			return new LinkedList<ContentInfo>();
-		}
-		
-		return result.getContentInfos();
 	}
 	
 	private List<ICompletionProposal> generateKeywordProposals(ITextViewer viewer, 
@@ -359,14 +340,7 @@ public final class HXContextAssist implements IContentAssistProcessor, ICompleti
 		final String identifierPart = fileText.substring(identOffset, offset);
 		
 		List<ICompletionProposal> proposals = new ArrayList<ICompletionProposal>();
-		
-		// Templates
-		proposals.addAll(Arrays.asList(templateProcessor.computeCompletionProposals(viewer, offset)));
-		
-		// Keywords
 		proposals.addAll(generateKeywordProposals(viewer, identOffset, offset, identifierPart));
-		
-		// Haxe proposals
 		proposals.addAll(generateProposalsList(identOffset, offset, infosCache.getFilteredInfos(identifierPart)));
 		
 		return proposals.toArray(new ICompletionProposal[proposals.size()]);
@@ -380,27 +354,22 @@ public final class HXContextAssist implements IContentAssistProcessor, ICompleti
 	@Override
 	public String getErrorMessage() {
 		// It looks like in current version of Eclipse user won't see this message anyway
-		return "No message"; 
+		return null; 
 	}
 	
-	/*
-	 * (non-Javadoc)
-	 * @see org.eclipse.jface.text.contentassist.IContentAssistProcessor#computeContextInformation(org.eclipse.jface.text.ITextViewer, int)
-	 */
 	@Override
 	public IContextInformation[] computeContextInformation(ITextViewer viewer, int offset) {
 		
-		int nonWhiteSpaceOffset = getPreviousNonWhitespaceOffset(viewer, offset);
-		
-		if (nonWhiteSpaceOffset != 0) {
-			char previousChar = viewer.getDocument().get().charAt(nonWhiteSpaceOffset);			
+		if (offset != 0) {
+			char previousChar = viewer.getDocument().get().charAt(offset - 1);
 			
 			switch (previousChar) {
 				case ',':
-					return computeContextInformation(viewer, getPreviousUnbalancedOpenBracket(viewer, nonWhiteSpaceOffset) + 1);
+					// TODO 6: add context info for function parameters.
+					break;
 				case '(':
 					// In current version we count informations only for the open bracket				
-					List<ContentInfo> contextInfos = getContentInfoForce(viewer, nonWhiteSpaceOffset);
+					List<ContentInfo> contextInfos = getContentInfoForce(viewer, offset);
 					
 					List<IContextInformation> resultInfos = new ArrayList<IContextInformation>();
 					for (ContentInfo contextInfo : contextInfos) {
@@ -415,48 +384,6 @@ public final class HXContextAssist implements IContentAssistProcessor, ICompleti
 		}
 		
 		return null;		
-	}
-	
-	private static int getPreviousNonWhitespaceOffset(ITextViewer viewer, int offset) {
-		while (--offset >= 0) {
-			try {
-				char ch;
-				ch = viewer.getDocument().getChar(offset);
-				
-				if (!Character.isWhitespace(ch)) {
-					return offset;
-				}
-				
-			} catch (BadLocationException e) {
-				EclihxUIPlugin.getLogHelper().logError(e);
-				return -1;
-			}
-			
-		}
-		
-		return -1;
-	}
-	
-	private int getPreviousUnbalancedOpenBracket(ITextViewer viewer, int offset) {
-		String text = viewer.getDocument().get();
-		int bracketBacance = 0;
-		
-		while ((--offset) >= 0) {
-			char ch = text.charAt(offset);
-			if (ch == '(') {
-				if (bracketBacance == 0) {
-					return offset;
-				} else {
-					bracketBacance--;
-				}
-			} else if (ch == ')') {
-				bracketBacance++;
-			} else if (ch == ';' || ch == '{' || ch == '}') {
-				return -1;
-			}
-		}
-		
-		return -1;
 	}
 
 	@Override

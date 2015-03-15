@@ -40,4 +40,5 @@ public class HxmlContextAssistimplements extends TemplateCompletionProcessor {
 	protected Image getImage(Template template) {
 		return null;
 	}
+
 }

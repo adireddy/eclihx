@@ -5,6 +5,8 @@ import org.eclipse.jface.preference.PreferencePage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -72,7 +74,18 @@ public class HaxeFormatOptionsPreferencePage  extends PreferencePage
 		
 		insertTabsCheck = new Button(top, SWT.CHECK);
 		insertTabsCheck.setText(INSERT_TABS);
-				
+		insertTabsCheck.addSelectionListener(new SelectionListener() {			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				indentWidthTextField.setEnabled(!insertTabsCheck.getSelection());
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				widgetSelected(e);
+			}
+		});
+		
 		Composite indentComposite = new Composite(top, SWT.FILL);	
 		indentComposite.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		FillLayout indentFillLayout = new FillLayout();

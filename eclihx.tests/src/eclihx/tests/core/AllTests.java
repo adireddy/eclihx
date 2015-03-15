@@ -6,8 +6,6 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses( { 
 	eclihx.tests.core.haxe.AllTests.class,
-	eclihx.tests.core.util.AllTests.class,
-	
 	ASConfigurationTest.class, 
 	BuildParamParserTest.class,
 	CodeFormatterTest.class,

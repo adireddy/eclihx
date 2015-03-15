@@ -8,7 +8,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
-import org.eclipse.jface.preference.FileFieldEditor;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -27,8 +26,6 @@ import org.eclipse.ui.dialogs.AbstractElementListSelectionDialog;
 import eclihx.core.CorePreferenceInitializer;
 import eclihx.core.EclihxCore;
 import eclihx.core.haxe.model.core.IHaxeProject;
-import eclihx.core.util.OSUtil;
-import eclihx.launching.HaxeRunnerConfiguration;
 import eclihx.launching.IHaxeLaunchConfigurationConstants;
 import eclihx.ui.internal.ui.EclihxUIPlugin;
 import eclihx.ui.internal.ui.utils.StandardDialogs;
@@ -57,12 +54,6 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 	private Text buildFileNameText;
 	private Text workingDirectoryText;
 	private Button projectBuildButton;
-	
-	private Button defaultCompilerRadio;
-	private Button alternativeCompilerRadio;
-	
-	private Composite pathEditorParentComposite;
-	private FileFieldEditor compilerPathEditor;
 
 	private final ModifyListener fModifyListener = new ModifyListener() {
 		@Override
@@ -90,8 +81,8 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 			// After that current project should be updated
 			if (haxeProject != null) {
 				if (!buildFilesCache.isEmpty()) {
-					buildFileNameText.setText(HaxeRunnerConfiguration.AttributesConverter.getBuildFileString(buildFilesCache.get(0)));
-					workingDirectoryText.setText(HaxeRunnerConfiguration.AttributesConverter.getWorkingDirectory(buildFilesCache.get(0).getParent()));
+					buildFileNameText.setText(buildFilesCache.get(0).getLocation().toOSString());
+					workingDirectoryText.setText(buildFilesCache.get(0).getParent().getLocation().toOSString());
 				} else {
 					buildFileNameText.setText("");
 					workingDirectoryText.setText("");					
@@ -202,54 +193,17 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 				onBuildFileSelected(event);
 			}
 		});
-		
-		// Add compiler path
-		Group compilerGroup = new Group(top, SWT.NONE);
-		compilerGroup.setText("Compiler");
-		compilerGroup.setLayout(layout);
-		compilerGroup.setLayoutData(horizontantalGrid);
-		
-		defaultCompilerRadio = new Button(compilerGroup, SWT.RADIO);
-		defaultCompilerRadio.setText("Default compiler");
-		
-		alternativeCompilerRadio = new Button(compilerGroup, SWT.RADIO);
-		alternativeCompilerRadio.setText("Alternative compiler:");
-		
-		pathEditorParentComposite = new Composite(compilerGroup, SWT.NONE);
-		pathEditorParentComposite.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		
-		compilerPathEditor = new FileFieldEditor(
-				CorePreferenceInitializer.HAXE_COMPILER_PATH, "haXe compiler:",
-				true, pathEditorParentComposite);
-		compilerPathEditor.setEmptyStringAllowed(true);
-		compilerPathEditor.setFileExtensions(OSUtil.getCompilerExtensionFilter());
-		compilerPathEditor.getTextControl(pathEditorParentComposite).addModifyListener(fModifyListener);
-		
-		
-		defaultCompilerRadio.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				setCompilerPathEditable(false);
-			}
-		});
-		
-		alternativeCompilerRadio.addSelectionListener(new SelectionAdapter() {			
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				setCompilerPathEditable(true);
-			}
-		});
 
 		// Add working  directory
 		Group workingDirectoryGroup = new Group(top, SWT.NONE);
-		workingDirectoryGroup.setText("Execute in directory");
+		workingDirectoryGroup.setText("Execute from directory");
 		workingDirectoryGroup.setLayout(layout);
 		workingDirectoryGroup.setLayoutData(horizontantalGrid);
 
 		workingDirectoryText = new Text(workingDirectoryGroup, SWT.BORDER);
 		workingDirectoryText.setLayoutData(horizontantalGrid);
 		workingDirectoryText.setEditable(false);
-		workingDirectoryText.setText("");		
+		workingDirectoryText.setText("");
 
 		setControl(top);
 	}
@@ -274,7 +228,6 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 		initializeProjectName(configuration);
 		initializeBuildFile(configuration);
 		initializeWorkingDirectory(configuration);
-		initializeCompilerControls(configuration);
 	}
 
 	/*
@@ -294,12 +247,15 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 		
 		configuration.setAttribute(
 				IHaxeLaunchConfigurationConstants.WORKING_DIRECTORY, workingDirectoryText.getText());
-
-		configuration.setAttribute(
-				IHaxeLaunchConfigurationConstants.IS_ALTERNATIVE_COMPILER, alternativeCompilerRadio.getSelection());
 		
+		// TODO 3 Make separate place for overriding initializer
 		configuration.setAttribute(
-				IHaxeLaunchConfigurationConstants.HAXE_COMPILER_PATH, compilerPathEditor.getStringValue());
+			IHaxeLaunchConfigurationConstants.HAXE_COMPILER_PATH,
+			EclihxCore.getDefault().getPluginPreferences().getString(
+				CorePreferenceInitializer.HAXE_COMPILER_PATH
+			)
+		);
+
 	}
 
 	/*
@@ -316,8 +272,6 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 				IHaxeLaunchConfigurationConstants.BUILD_FILE, "");
 		configuration.setAttribute(
 				IHaxeLaunchConfigurationConstants.WORKING_DIRECTORY, "");
-		configuration.setAttribute(
-				IHaxeLaunchConfigurationConstants.IS_ALTERNATIVE_COMPILER, false);
 		configuration.setAttribute(
 				IHaxeLaunchConfigurationConstants.HAXE_COMPILER_PATH, "");
 	}
@@ -370,36 +324,6 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 		}
 		buildFileNameText.setText(buildFileString);
 	}
-	
-	private void initializeCompilerControls(ILaunchConfiguration configuration) {
-		String compilerPath = "";
-		boolean isDefaultCompiler = false;
-		
-		try {
-			isDefaultCompiler = !configuration.getAttribute(
-					IHaxeLaunchConfigurationConstants.IS_ALTERNATIVE_COMPILER, 
-					false);
-			
-			compilerPath = configuration.getAttribute(
-					IHaxeLaunchConfigurationConstants.HAXE_COMPILER_PATH,
-					compilerPath);
-		} catch (CoreException e) {
-			EclihxCore.getLogHelper().logError(e);
-		}
-		
-		defaultCompilerRadio.setSelection(isDefaultCompiler);
-		alternativeCompilerRadio.setSelection(!isDefaultCompiler);
-		setCompilerPathEditable(!isDefaultCompiler);
-		
-		compilerPathEditor.setStringValue(compilerPath);
-	}
-	
-	private void setCompilerPathEditable(boolean isEnabled) {
-		compilerPathEditor.getTextControl(pathEditorParentComposite).setEditable(isEnabled);
-		compilerPathEditor.getTextControl(pathEditorParentComposite).setEnabled(isEnabled);	
-		
-		updateLaunchConfigurationDialog();
-	}
 
 	/*
 	 * (non-Javadoc)
@@ -423,7 +347,7 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 					IHaxeLaunchConfigurationConstants.PROJECT_NAME, "");
 			
 			if (projectName == null || projectName.isEmpty()) {
-				setMessage("Choose the haXe project");
+				setMessage("Choose the Haxe project");
 				setErrorMessage(null);
 				return false;
 			}
@@ -431,7 +355,7 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 			// Build file check
 			if (buildFilesCache != null && buildFilesCache.isEmpty()) {
 				setErrorMessage(
-					"This version of EclihX only supports building based " +
+					"This version of Eclihx only supports building based " +
 					"on hxml-file. Please create one for this project before " +
 					"proceeding with launching");
 				setMessage(null);
@@ -446,20 +370,16 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 				return false;
 			}
 
-			boolean isDefaultCompiler = !launchConfig.getAttribute(
-					IHaxeLaunchConfigurationConstants.IS_ALTERNATIVE_COMPILER, 
-					false);
+			// compiler check
+			String executablePath = launchConfig.getAttribute(
+					IHaxeLaunchConfigurationConstants.HAXE_COMPILER_PATH, "");
 			
-			if (!isDefaultCompiler) {
-				// compiler check
-				String executablePath = launchConfig.getAttribute(
-						IHaxeLaunchConfigurationConstants.HAXE_COMPILER_PATH, "");
-				
-				if (executablePath.isEmpty()) {
-					setErrorMessage("Please, define an alternative compiler or select an option of usage a default one");
-					setMessage(null);
-					return false;
-				}
+			if (executablePath.isEmpty()) {
+				setErrorMessage(
+					"Please, define Haxe compiler first " +
+					"(Preferences->Eclihx->Compiler).");
+				setMessage(null);
+				return false;
 			}
 
 			if (haxeProject == null) {

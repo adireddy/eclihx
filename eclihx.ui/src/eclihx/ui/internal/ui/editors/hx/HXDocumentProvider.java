@@ -16,10 +16,10 @@ public class HXDocumentProvider extends FileDocumentProvider {
 	 * @see org.eclipse.ui.editors.text.StorageDocumentProvider#createDocument(java.lang.Object)
 	 */
 	@Override
-	protected IDocument createDocument(Object element) throws CoreException {		
+	protected IDocument createDocument(Object element) throws CoreException {
+		
 		IDocument document = super.createDocument(element);
 		if (document != null) {
-			
 			IDocumentPartitioner partitioner =
 				new FastPartitioner(
 					new HXPartitionScanner(),
@@ -31,7 +31,6 @@ public class HXDocumentProvider extends FileDocumentProvider {
 						IHXPartitions.HX_DOC,
 						IHXPartitions.HX_PREPROCESSOR });
 			partitioner.connect(document);
-			
 			document.setDocumentPartitioner(partitioner);
 		}
 		

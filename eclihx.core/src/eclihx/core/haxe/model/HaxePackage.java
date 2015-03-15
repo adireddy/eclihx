@@ -156,11 +156,11 @@ public class HaxePackage extends HaxeElement implements IHaxePackage {
 			
 			for (IResource resource : resources) {
 				if (resource.getType() == IResource.FOLDER) {
-					if (HaxeElementValidator.validatePackageName(resource.getName()).isOK()) {
-						IHaxePackage curPackage = new HaxePackage(this, (IFolder)resource);
-						haxePackages.add(curPackage);
-						haxePackages.addAll(Arrays.asList(curPackage.getChildrenPackages()));
-					}
+					IHaxePackage curPackage = new HaxePackage(
+							this, (IFolder)resource);
+					haxePackages.add(curPackage);
+					haxePackages.addAll(
+							Arrays.asList(curPackage.getChildrenPackages()));					
 				}
 			}
 			

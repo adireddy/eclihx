@@ -152,9 +152,6 @@ public final class PreferenceConstants {
 		"hx_format_option_properties_indent_on_empty_lines";		
 	public final static String HX_FORMAT_OPTION_PROPERTIES_INDENT_WIDTH = 
 		"hx_format_option_properties_indent_width";		
-	
-	public final static String HX_EDITOR_MATCHING_BRACKETS = "hx_editor_matching_brackets";
-	public final static String HX_EDITOR_MATCHING_BRACKETS_COLOR = "hx_editor_matching_brackets_color";
 
 	//==============================================//
 	
@@ -164,88 +161,88 @@ public final class PreferenceConstants {
 	 */
 	public static void initializeDefaultValues(IPreferenceStore store) {
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_COMMENT_COLOR, new RGB(0x0, 0x99, 0x0));
+			store, HX_EDITOR_COMMENT_COLOR, new RGB(128, 128, 128));
 		store.setDefault(HX_EDITOR_COMMENT_BOLD, false);
-		store.setDefault(HX_EDITOR_COMMENT_ITALIC, false);
+		store.setDefault(HX_EDITOR_COMMENT_ITALIC, true);
 		
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_MULTILINE_COMMENT_COLOR, new RGB(0x0, 0x99, 0x0));
+			store, HX_EDITOR_MULTILINE_COMMENT_COLOR, new RGB(0, 128, 0));
 		store.setDefault(HX_EDITOR_MULTILINE_COMMENT_BOLD, false);
 		store.setDefault(HX_EDITOR_MULTILINE_COMMENT_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_STRING_COLOR, new RGB(0xff, 0x0, 0x0));
+			store, HX_EDITOR_STRING_COLOR, new RGB(255, 0, 0));
 		store.setDefault(HX_EDITOR_STRING_BOLD, false);
 		store.setDefault(HX_EDITOR_STRING_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_BRACKET_COLOR, new RGB(0x0, 0x0, 0x0));
-		store.setDefault(HX_EDITOR_BRACKET_BOLD, true);
+			store, HX_EDITOR_BRACKET_COLOR, new RGB(102, 204, 102));
+		store.setDefault(HX_EDITOR_BRACKET_BOLD, false);
 		store.setDefault(HX_EDITOR_BRACKET_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_BRACE_COLOR, new RGB(0x0, 0x0, 0x0));
-		store.setDefault(HX_EDITOR_BRACE_BOLD, true);
+			store, HX_EDITOR_BRACE_COLOR, new RGB(102, 204, 102));
+		store.setDefault(HX_EDITOR_BRACE_BOLD, false);
 		store.setDefault(HX_EDITOR_BRACE_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_NUMBER_COLOR, new RGB(0x55, 0x55, 0x77));
+			store, HX_EDITOR_NUMBER_COLOR, new RGB(204, 102, 204));
 		store.setDefault(HX_EDITOR_NUMBER_BOLD, false);
 		store.setDefault(HX_EDITOR_NUMBER_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_REGEXPR_COLOR, new RGB(0x0, 0x0, 0x0));
+			store, HX_EDITOR_REGEXPR_COLOR, new RGB(0, 128, 0));
 		store.setDefault(HX_EDITOR_REGEXPR_BOLD, false);
 		store.setDefault(HX_EDITOR_REGEXPR_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_DECLARE_KEYWORDS_COLOR, new RGB(0x0, 0x0, 0x99));
+			store, HX_EDITOR_DECLARE_KEYWORDS_COLOR, new RGB(0, 0, 0));
 		store.setDefault(HX_EDITOR_DECLARE_KEYWORDS_BOLD, true);
 		store.setDefault(HX_EDITOR_DECLARE_KEYWORDS_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_KEYWORDS_COLOR, new RGB(0x0, 0x0, 0x99));
-		store.setDefault(HX_EDITOR_KEYWORDS_BOLD, true);
+			store, HX_EDITOR_KEYWORDS_COLOR, new RGB(0, 0, 102));
+		store.setDefault(HX_EDITOR_KEYWORDS_BOLD, false);
 		store.setDefault(HX_EDITOR_KEYWORDS_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_TYPE_COLOR, new RGB(0x55, 0x55, 0x77));
+			store, HX_EDITOR_TYPE_COLOR, new RGB(0, 0, 102));
 		store.setDefault(HX_EDITOR_TYPE_BOLD, false);
 		store.setDefault(HX_EDITOR_TYPE_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
 			store, HX_EDITOR_CONDITIONAL_COMPILATION_COLOR, 
-			new RGB(0x0, 0x0, 0x99));
+			new RGB(128, 128, 128));
 		store.setDefault(HX_EDITOR_CONDITIONAL_COMPILATION_BOLD, false);
 		store.setDefault(HX_EDITOR_CONDITIONAL_COMPILATION_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_TEMPLATE_COLOR, new RGB(0x0, 0x0, 0xff));
+			store, HX_EDITOR_TEMPLATE_COLOR, new RGB(0, 0, 255));
 		store.setDefault(HX_EDITOR_TEMPLATE_BOLD, false);
 		store.setDefault(HX_EDITOR_TEMPLATE_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_HAXE_DOC_COLOR, new RGB(0x0, 0x99, 0x0));
+			store, HX_EDITOR_HAXE_DOC_COLOR, new RGB(128, 128, 128));
 		store.setDefault(HX_EDITOR_HAXE_DOC_BOLD, false);
 		store.setDefault(HX_EDITOR_HAXE_DOC_ITALIC, true);
 		
 		PreferenceConverter.setDefault(
-			store, HX_EDITOR_DEFAULT_COLOR, new RGB(0x0, 0x0, 0x0));
+			store, HX_EDITOR_DEFAULT_COLOR, new RGB(0, 0, 0));
 		store.setDefault(HX_EDITOR_DEFAULT_BOLD, false);
 		store.setDefault(HX_EDITOR_DEFAULT_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
-				store, HXML_EDITOR_DEFAULT_COLOR, new RGB(0x0, 0x0, 0x0));
+				store, HXML_EDITOR_DEFAULT_COLOR, new RGB(0, 0, 0));
 		store.setDefault(HXML_EDITOR_DEFAULT_BOLD, false);
 		store.setDefault(HXML_EDITOR_DEFAULT_ITALIC, false);
 		
 		PreferenceConverter.setDefault(
-				store, HXML_EDITOR_COMMENT_COLOR, new RGB(0x0, 0x99, 0x0));
+				store, HXML_EDITOR_COMMENT_COLOR, new RGB(128, 128, 128));
 		store.setDefault(HXML_EDITOR_COMMENT_BOLD, false);
-		store.setDefault(HXML_EDITOR_COMMENT_ITALIC, false);
+		store.setDefault(HXML_EDITOR_COMMENT_ITALIC, true);
 		
 		PreferenceConverter.setDefault(
-				store, HXML_EDITOR_OPTION_COLOR, new RGB(0x0, 0x0, 0x99));
+				store, HXML_EDITOR_OPTION_COLOR,  new RGB(127, 0, 85));
 		store.setDefault(HXML_EDITOR_OPTION_BOLD, true);
 		store.setDefault(HXML_EDITOR_OPTION_ITALIC, false);
 		
@@ -257,10 +254,6 @@ public final class PreferenceConstants {
 		store.setDefault(HX_FORMAT_OPTION_PROPERTIES_INDENT_WIDTH, 4);
 		
 		store.setDefault(HAXE_ALWAYS_OPEN_PROBLEM_VIEW_ON_ERRORS, false);
-		
-		store.setDefault(HX_EDITOR_MATCHING_BRACKETS, true);
-		PreferenceConverter.setDefault(
-				store, HX_EDITOR_MATCHING_BRACKETS_COLOR, new RGB(192, 192, 192));
 	}
 	
 	public static IPreferenceStore getPreferenceStore() {

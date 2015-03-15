@@ -7,7 +7,7 @@ import org.eclipse.jface.text.rules.EndOfLineRule;
 import org.eclipse.jface.text.rules.IPredicateRule;
 import org.eclipse.jface.text.rules.IRule;
 import org.eclipse.jface.text.rules.IToken;
-import org.eclipse.jface.text.rules.PatternRule;
+import org.eclipse.jface.text.rules.MultiLineRule;
 import org.eclipse.jface.text.rules.RuleBasedPartitionScanner;
 import org.eclipse.jface.text.rules.Token;
 
@@ -30,13 +30,13 @@ public class HXPartitionScanner extends RuleBasedPartitionScanner {
 		
 		ArrayList<IRule> rules = new ArrayList<IRule>(5);
 
-		rules.add(new PatternRule("/**", "*/", hxDoc, (char)0, false, true));
-		rules.add(new PatternRule("/*", "*/", hxMultilineComment, (char)0, false, true));
+		rules.add(new MultiLineRule("/**", "*/", hxDoc));
+		rules.add(new MultiLineRule("/*", "*/", hxMultilineComment));
 		rules.add(new EndOfLineRule("//", hxComment));
 		rules.add(new EndOfLineRule("#", hxPreprocessor));
-		rules.add(new PatternRule("~/", "/", hxRegexpr, (char)0, false, true));
-		rules.add(new PatternRule("\"", "\"", hxString, '\\', false, true));
-		rules.add(new PatternRule("\'", "\'", hxString, '\\', false, true));
+		rules.add(new MultiLineRule("~/", "/", hxRegexpr));
+		rules.add(new MultiLineRule("\"", "\"", hxString, '\\'));
+		rules.add(new MultiLineRule("\'", "\'", hxString, '\\'));
 
 		setPredicateRules(rules.toArray(new IPredicateRule[rules.size()]));
 	}

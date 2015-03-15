@@ -111,11 +111,6 @@ public class PluginImages {
 	 */
 	public static final String IMG_PACKAGE = NAME_PREFIX + "h_package_s.gif";
 	
-	/**
-	 * Package image key.
-	 */
-	public static final String IMG_TEMPLATE_PROPOSAL = NAME_PREFIX + "template_obj.gif";
-	
 	/*
 	 * Set of predefined Image Descriptors.
 	 */
@@ -151,9 +146,6 @@ public class PluginImages {
 	
 	public static final ImageDescriptor DESC_OBJ_PACKAGE =
 		createManagedFromKey(UNDEFINED, IMG_PACKAGE);
-	
-	public static final ImageDescriptor DESC_OBJ_TEMPLATE_PROPOSAL =
-			createManagedFromKey(UNDEFINED, IMG_TEMPLATE_PROPOSAL);
 	
 	public static final ImageDescriptor DESC_WIZBAN_NEWPACK = 
 			createUnManaged(WIZARDS_PREFIX, "newpack_wiz.png"); 

@@ -50,19 +50,18 @@ public class FormatAllAction implements IEditorActionDelegate {
 		IDocumentProvider dp = haxeEditor.getDocumentProvider();
 		IDocument doc = dp.getDocument(haxeEditor.getEditorInput());
 		String text = doc.get();
-		String outputText = CodeFormatter.formatAll(text, getPreferenceOptions());
+		String outputText = CodeFormatter.format(text, getPreferenceOptions());
 
 		try {
 			doc.replace(0, doc.getLength(), outputText);
 		} catch (BadLocationException e) {
 			EclihxUIPlugin.getLogHelper().logError(e);
 		}
-	}	
+	}
+	
+	
 
-	/**
-	 * @return Formating options.
-	 */
-	public static FormatOptions getPreferenceOptions() {
+	private FormatOptions getPreferenceOptions() {
 		
 		FormatOptions formatOptions = new CodeFormatter.FormatOptions();
 		
@@ -85,6 +84,7 @@ public class FormatAllAction implements IEditorActionDelegate {
 	 */
 	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
-		// Do nothing
+		// TODO Auto-generated method stub
+
 	}
 }

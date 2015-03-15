@@ -59,6 +59,7 @@ class OutlineMacro {
 					}
 				default:
 					trace("Not finished yet");
+					trace(type);
 			}
 			
 			return typeNode;
@@ -76,9 +77,9 @@ class OutlineMacro {
 		}
 		
 		var xmlDocument = Xml.createDocument();
-		xmlDocument.addChild(getModuleXml("${module}"));
+		xmlDocument.addChild(getModuleXml("flash.display.Graphics"));
 		
-		var file = neko.io.File.write("${output}", false);
+		var file = neko.io.File.write("outline.xml", false);
 		file.writeString(xmlDocument.toString());
 		file.close();
 		
