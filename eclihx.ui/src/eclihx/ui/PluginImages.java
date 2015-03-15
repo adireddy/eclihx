@@ -94,12 +94,12 @@ public class PluginImages {
 	/**
 	 * Project image key.
 	 */
-	public static final String IMG_PROJECT = NAME_PREFIX + "h_project_s.gif";
+	public static final String IMG_PROJECT = NAME_PREFIX + "h_project_s.png";
 	
 	/**
 	 * Source folder image key.
 	 */
-	public static final String IMG_SOURCE_FOLDER = NAME_PREFIX + "sourcefolder_s.gif";
+	public static final String IMG_SOURCE_FOLDER = NAME_PREFIX + "sourcefolder_s.png";
 	
 	/**
 	 * Build file image key.
@@ -109,7 +109,7 @@ public class PluginImages {
 	/**
 	 * Package image key.
 	 */
-	public static final String IMG_PACKAGE = NAME_PREFIX + "h_package_s.gif";
+	public static final String IMG_PACKAGE = NAME_PREFIX + "h_package_s.png";
 	
 	/*
 	 * Set of predefined Image Descriptors.
