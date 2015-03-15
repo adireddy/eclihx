@@ -5,7 +5,7 @@ import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;
 
 /**
- * EclihX Logger Class.
+ * Eclihx Logger Class.
  */
 public final class EclihxLogger implements IPluginLogger {
 
@@ -124,7 +124,7 @@ public final class EclihxLogger implements IPluginLogger {
 	}
 
 	/**
-	 * Method generates status for the EclihX plug-ins.	
+	 * Method generates status for the Eclihx plug-ins.	
 	 * @param severity severity of the log message.
 	 * @param code status of the message.
 	 * @param message message to log.

@@ -19,7 +19,7 @@ import eclihx.core.haxe.model.core.IHaxeSourceFolder;
 import eclihx.core.haxe.model.core.IHaxeWorkspace;
 
 /**
- * Class extends original IWorskpaceRoot object with the haXe functionality.
+ * Class extends original IWorskpaceRoot object with the Haxe functionality.
  */
 public class HaxeWorkspace extends HaxeElement implements IHaxeWorkspace {
 

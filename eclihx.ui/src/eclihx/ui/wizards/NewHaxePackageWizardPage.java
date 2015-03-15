@@ -26,7 +26,7 @@ import eclihx.ui.internal.ui.utils.StandardDialogs;
 public final class NewHaxePackageWizardPage extends AbstractSelectionPage {
 	
 	/**
-	 * The haXe source folder.
+	 * The Haxe source folder.
 	 */
 	private IHaxeSourceFolder sourceFolder;
 	
@@ -47,10 +47,10 @@ public final class NewHaxePackageWizardPage extends AbstractSelectionPage {
 	 */
 	public NewHaxePackageWizardPage(IStructuredSelection selection) {
 		
-		super("New haXe Package", selection);
+		super("New Haxe Package", selection);
 		
-		setTitle("New haXe Package");
-		setDescription("This wizard creates a new haXe package.");
+		setTitle("New Haxe Package");
+		setDescription("This wizard creates a new Haxe package.");
 		
 	}
 
@@ -224,7 +224,7 @@ public final class NewHaxePackageWizardPage extends AbstractSelectionPage {
 	}
 
 	/**
-	 * Generate text representation for the haXe source folder.
+	 * Generate text representation for the Haxe source folder.
 	 * 
 	 * @param folder new folder.
 	 */
@@ -244,7 +244,7 @@ public final class NewHaxePackageWizardPage extends AbstractSelectionPage {
 
 	/**
 	 * Returns the the source folder of the package.
-	 * @return the haXe source folder of the package.
+	 * @return the Haxe source folder of the package.
 	 */
 	public IHaxeSourceFolder getSourceFolder() {
 		return sourceFolder;

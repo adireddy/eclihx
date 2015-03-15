@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Objects of this class will store info which was got from the
- * haXe tips processor for function call.  
+ * Haxe tips processor for function call.  
  */
 @XmlRootElement(name = "root")
 public class FunctionSignature {

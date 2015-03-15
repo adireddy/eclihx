@@ -35,7 +35,7 @@ public class FlashRunner {
 			throws CoreException {
 		try {
 			
-			// TODO 2: Get output folder from the haXe project
+			// TODO 2: Get output folder from the Haxe project
 			String outputFolder = ""; 
 			
 			BuildParamParser parser = new BuildParamParser();			

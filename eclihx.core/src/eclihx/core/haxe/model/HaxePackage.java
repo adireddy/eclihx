@@ -24,7 +24,7 @@ import eclihx.core.haxe.model.core.IHaxeSourceFolder;
 
 
 /**
- * First implementation of the haXe package element.
+ * First implementation of the Haxe package element.
  */
 public class HaxePackage extends HaxeElement implements IHaxePackage {
 	
@@ -82,7 +82,7 @@ public class HaxePackage extends HaxeElement implements IHaxePackage {
 	}
 	
 	/**
-	 * Constructs sub-package for the give haXe package.
+	 * Constructs sub-package for the give Haxe package.
 	 * 
 	 * @param parent source folder where this package is situated.
 	 * @param folder the folder of the package. <b>Note</b> that this folder 

@@ -9,8 +9,8 @@ import org.eclipse.core.resources.IFolder;
 public interface IHaxeOutputFolder extends IHaxeElement {
 	
 	/**
-	 * Get the haXe project this folder belongs to.
-	 * @return the haXe project.
+	 * Get the Haxe project this folder belongs to.
+	 * @return the Haxe project.
 	 */
 	IHaxeProject getHaxeProject();
 	

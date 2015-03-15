@@ -18,7 +18,7 @@ import eclihx.core.haxe.model.core.IHaxeSourceFile;
 public class HaxeSourceFile extends HaxeElement implements IHaxeSourceFile {
 
 	/**
-	 * Resource object for this haXe file.
+	 * Resource object for this Haxe file.
 	 */
 	private final IFile fFile;
 
@@ -56,11 +56,11 @@ public class HaxeSourceFile extends HaxeElement implements IHaxeSourceFile {
 	}
 
 	/**
-	 * Construct the haXe source file object on the base of the IFile resource.
-	 * Resource should have a valid haXe file name.
+	 * Construct the Haxe source file object on the base of the IFile resource.
+	 * Resource should have a valid Haxe file name.
 	 * 
 	 * @param file the original resource file.
-	 * @param haxePackage haXe package where this file is situated.
+	 * @param haxePackage Haxe package where this file is situated.
 	 */
 	public HaxeSourceFile(IFile file, IHaxePackage haxePackage) {
 		super(haxePackage);
@@ -71,7 +71,7 @@ public class HaxeSourceFile extends HaxeElement implements IHaxeSourceFile {
 
 		if (!HaxeProject.isHaxeProject(file.getProject())) {
 			throw new InvalidParameterException(
-					"Given file should be in the haXe project");
+					"Given file should be in the Haxe project");
 		}
 
 		if (!file.getParent().equals(haxePackage.getBaseFolder())) {
@@ -134,7 +134,7 @@ public class HaxeSourceFile extends HaxeElement implements IHaxeSourceFile {
 	}
 
 	/**
-	 * Get the default haXe class name for this file but without package prefix.
+	 * Get the default Haxe class name for this file but without package prefix.
 	 * 
 	 * @return the string with the class name.
 	 */
@@ -160,7 +160,7 @@ public class HaxeSourceFile extends HaxeElement implements IHaxeSourceFile {
 
 	/**
 	 * Move haxe file.
-	 * @param haxePackage move to other haXe package.
+	 * @param haxePackage move to other Haxe package.
 	 */
 	public void move(HaxePackage haxePackage) {
 		// FIXME 10: tie-in refactorings should be done

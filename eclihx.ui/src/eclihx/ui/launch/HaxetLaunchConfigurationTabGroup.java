@@ -7,7 +7,7 @@ import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import eclihx.ui.launch.tabs.HaxeMainTab;
 
 /**
- * Defines tabs for haXe launch configuration wizard.
+ * Defines tabs for Haxe launch configuration wizard.
  */
 public class HaxetLaunchConfigurationTabGroup extends AbstractLaunchConfigurationTabGroup {
 	

@@ -31,7 +31,7 @@ import eclihx.core.haxe.model.core.IHaxeSourceFolder;
 import eclihx.core.haxe.model.core.IProjectPathManager;
 
 /**
- * Extend eclipse project with haXe functionality.
+ * Extend eclipse project with Haxe functionality.
  */
 public final class HaxeProject extends HaxeElement implements IHaxeProject {
 
@@ -46,10 +46,10 @@ public final class HaxeProject extends HaxeElement implements IHaxeProject {
 	IProjectPathManager fPathManager;
 
 	/**
-	 * Create the haXe project on the base of the IProject.
-	 * This constructor will add a haXe nature to the project.
+	 * Create the Haxe project on the base of the IProject.
+	 * This constructor will add a Haxe nature to the project.
 	 *
-	 * @param project the project which should become a haXe project. It should
+	 * @param project the project which should become a Haxe project. It should
 	 *        be opened.
 	 */
 	public HaxeProject(IProject project) {
@@ -63,7 +63,7 @@ public final class HaxeProject extends HaxeElement implements IHaxeProject {
 		}
 		
 		try {
-			addHaxeNature(); // Say to eclipse, that it's a haXe project
+			addHaxeNature(); // Say to eclipse, that it's a Haxe project
 		} catch (CoreException e) {
 			// It should never happen.
 			EclihxCore.getLogHelper().logError(e);
@@ -87,10 +87,10 @@ public final class HaxeProject extends HaxeElement implements IHaxeProject {
 	}
 	
 	/**
-	 * Returns true if current project has haXe nature.
+	 * Returns true if current project has Haxe nature.
 	 * 
 	 * @param project the project for check.
-	 * @return true if current project has haXe nature.
+	 * @return true if current project has Haxe nature.
 	 */
 	public static boolean isHaxeProject(IProject project) {
 		try {
@@ -250,11 +250,11 @@ public final class HaxeProject extends HaxeElement implements IHaxeProject {
 	 */
 	public void open(IProgressMonitor monitor) throws CoreException { 
 		fProject.open(monitor);
-		addHaxeNature(); // Say eclipse, that it's a haXe project
+		addHaxeNature(); // Say eclipse, that it's a Haxe project
 	}
 	
 	/**
-	 * Add haXe nature to the project, if it hasn't been added before
+	 * Add Haxe nature to the project, if it hasn't been added before
      *
 	 * @throws CoreException if project hasn't been opened
 	 */

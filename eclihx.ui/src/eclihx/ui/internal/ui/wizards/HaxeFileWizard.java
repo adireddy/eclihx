@@ -13,12 +13,12 @@ import eclihx.ui.PreferenceConstants;
 import eclihx.ui.wizards.NewHaxeFileWizardPage;
 
 /**
- * Wizard for the new haXe file.
+ * Wizard for the new Haxe file.
  */
 public class HaxeFileWizard extends AbstractMonitorWizard implements INewWizard {
 
 	/**
-	 * The only page for haXe file creation.
+	 * The only page for Haxe file creation.
 	 */
 	NewHaxeFileWizardPage haxeFilePage;
 	
@@ -33,7 +33,7 @@ public class HaxeFileWizard extends AbstractMonitorWizard implements INewWizard 
 	public HaxeFileWizard() {
 		super();
 		
-		setWindowTitle("New haXe file");
+		setWindowTitle("New Haxe file");
 	}
 	
 	@Override
@@ -46,7 +46,7 @@ public class HaxeFileWizard extends AbstractMonitorWizard implements INewWizard 
 		final IHaxePackage haxePackage = haxeFilePage.getHaxePackage();
 		final String haxeFileName = haxeFilePage.getFileName();
 		
-		monitor.beginTask("Creating haXe file " + haxeFileName, 1);
+		monitor.beginTask("Creating Haxe file " + haxeFileName, 1);
 		
 		try {
 			// TODO 3: Remove that! Singleton usage should be removed. 

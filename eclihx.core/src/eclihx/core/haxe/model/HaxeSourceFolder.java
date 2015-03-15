@@ -21,7 +21,7 @@ import eclihx.core.haxe.model.core.IHaxeSourceFile;
 import eclihx.core.haxe.model.core.IHaxeSourceFolder;
 
 /**
- * haXe source folder class. This is the basic wrapper for the IFolder.
+ * Haxe source folder class. This is the basic wrapper for the IFolder.
  */
 public final class HaxeSourceFolder extends HaxeElement
 		implements IHaxeSourceFolder {
@@ -32,13 +32,13 @@ public final class HaxeSourceFolder extends HaxeElement
 	private final IFolder fFolder;
 	
 	/**
-	 * Owner haXe project. 
+	 * Owner Haxe project. 
 	 */
 	private final IHaxeProject fHaxeProject;
 	
 	/**
 	 * Default constructor.
-	 * @param project the haXe owner project.
+	 * @param project the Haxe owner project.
 	 * @param folder the base IFolder object.
 	 */
 	public HaxeSourceFolder(IHaxeProject project, IFolder folder) {

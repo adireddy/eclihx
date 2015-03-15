@@ -44,7 +44,7 @@ public class FlashDebugTarget extends FlashDebugElement implements IDebugTarget 
 	class EventDispatchJob extends Job {
 		
 		public EventDispatchJob() {
-			super("haXe flash event dispatch");
+			super("Haxe flash event dispatch");
 			
 			setSystem(true);
 		}

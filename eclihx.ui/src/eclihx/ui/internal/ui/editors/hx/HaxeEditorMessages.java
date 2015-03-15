@@ -4,7 +4,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 /**
- * haXe editor specific string resources storage.
+ * Haxe editor specific string resources storage.
  */
 public class HaxeEditorMessages {
 	private static final String BUNDLE_NAME = "eclihx.ui.internal.ui.editors.hx.HaxeEditorMessages"; //$NON-NLS-1$

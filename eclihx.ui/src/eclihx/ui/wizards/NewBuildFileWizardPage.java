@@ -27,12 +27,12 @@ import eclihx.ui.internal.ui.wizards.HaxeBuildFileWizard;
 public final class NewBuildFileWizardPage extends AbstractSelectionPage {
 
 	/**
-	 * Selected haXe project.
+	 * Selected Haxe project.
 	 */
 	IHaxeProject haxeProject;
 
 	/**
-	 * Field with the haXe project name.
+	 * Field with the Haxe project name.
 	 */
 	Text haxeProjectField;
 
@@ -51,10 +51,10 @@ public final class NewBuildFileWizardPage extends AbstractSelectionPage {
 	public NewBuildFileWizardPage(String pageName,
 			IStructuredSelection selection) {
 
-		super("haXe Build File", selection);
+		super("Haxe Build File", selection);
 
-		setDescription("Insert a name for the new haXe build file");
-		setTitle("Creation of the haXe build file");
+		setDescription("Insert a name for the new Haxe build file");
+		setTitle("Creation of the Haxe build file");
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public final class NewBuildFileWizardPage extends AbstractSelectionPage {
 		top.setLayout(new GridLayout(3, false));
 
 		{
-			// Add haXe project group
+			// Add Haxe project group
 
 			Label label = new Label(top, SWT.NULL);
 			label.setText("Project:");
@@ -138,9 +138,9 @@ public final class NewBuildFileWizardPage extends AbstractSelectionPage {
 	}
 	
 	/**
-	 * Method updates the selected haXe project.
+	 * Method updates the selected Haxe project.
 	 * 
-	 * @param project new haXe project.
+	 * @param project new Haxe project.
 	 */
 	private void updateHaxeProject(IHaxeProject project) {
 		haxeProject = project;
@@ -151,7 +151,7 @@ public final class NewBuildFileWizardPage extends AbstractSelectionPage {
 	}
 
 	/**
-	 * Handler of the haXe projects browse button.
+	 * Handler of the Haxe projects browse button.
 	 */
 	private void onHaxeProjectsBrowseButton() {
 
@@ -204,8 +204,8 @@ public final class NewBuildFileWizardPage extends AbstractSelectionPage {
 	}
 	
 	/**
-	 * Returns selected haXe project
-	 * @return the haXe project.
+	 * Returns selected Haxe project
+	 * @return the Haxe project.
 	 */
 	public IHaxeProject getHaxeProject() {
 		return haxeProject;

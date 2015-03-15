@@ -13,7 +13,7 @@ import eclihx.core.haxe.internal.versioning.VersionInfo;
 import eclihx.core.util.language.Pair;
 
 /**
- * Parses haXe compile errors.
+ * Parses Haxe compile errors.
  * 
  * Supported versions: 2.0
  */
@@ -22,7 +22,7 @@ public final class HaxeOutputErrorsParser implements IHaxeOutputErrorsParser {
 	private static final VersionInfo SUPPORTED_VERSIONS_INFO = VersionInfo.above("2.0");
 	
 	/**
-	 * Regular expression for splitting haXe error to groups.
+	 * Regular expression for splitting Haxe error to groups.
 	 * (file) : (line number) : (characters) : message
 	 */
 	private static final Pattern LINE_ERROR_PATTERN = Pattern.compile(
@@ -134,7 +134,7 @@ public final class HaxeOutputErrorsParser implements IHaxeOutputErrorsParser {
 			}			
 		}
 		
-		// This is not a haXe compilation error
+		// This is not a Haxe compilation error
 		return null;
 	}
 	

@@ -1,7 +1,7 @@
 package eclihx.core.haxe.internal;
 
 /**
- * Manager of haXe specific constants.
+ * Manager of Haxe specific constants.
  */
 @SuppressWarnings("all")
 public class HaxePreferencesManager {
@@ -12,7 +12,7 @@ public class HaxePreferencesManager {
 	public static final String BUILD_FILE_EXTENSION = "hxml";
 	
 	/**
-	 * haXe file extension.
+	 * Haxe file extension.
 	 */
 	public static final String HAXE_FILE_EXTENSION = "hx";
 	

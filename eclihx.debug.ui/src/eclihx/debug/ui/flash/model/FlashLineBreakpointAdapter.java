@@ -72,11 +72,11 @@ public class FlashLineBreakpointAdapter implements IToggleBreakpointsTarget {
 	}
 
 	/**
-	 * Returns the editor being used to edit a haXe file, associated with the
+	 * Returns the editor being used to edit a Haxe file, associated with the
 	 * given part, or <code>null</code> if none.
 	 *  
 	 * @param part workbench part
-	 * @return the editor being used to edit a haXe file, associated with the
+	 * @return the editor being used to edit a Haxe file, associated with the
 	 * given part, or <code>null</code> if none
 	 */
 	private ITextEditor getEditor(IWorkbenchPart part) {

@@ -54,7 +54,7 @@ public class HaxeContextAssistManager {
 	/**
 	 * Get the tips for the defined position.
 	 * 
-	 * @param haxeFile the haXe file for getting tip. 
+	 * @param haxeFile the Haxe file for getting tip. 
 	 * @param position offset in file where tip should be got.
 	 * @return set of tips. 
 	 * @throws TipsEvaluationException if there were errors in tips execution.

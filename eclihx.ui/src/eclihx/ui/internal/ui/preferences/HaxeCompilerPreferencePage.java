@@ -19,7 +19,7 @@ import eclihx.ui.PreferenceConstants;
 import eclihx.ui.internal.ui.EclihxUIPlugin;
 
 /**
- * Preference page for setting up the path to the haXe compiler.
+ * Preference page for setting up the path to the Haxe compiler.
  */
 public class HaxeCompilerPreferencePage extends PreferencePage implements
 		IWorkbenchPreferencePage {
@@ -67,7 +67,7 @@ public class HaxeCompilerPreferencePage extends PreferencePage implements
 							CorePreferenceInitializer.HAXE_COMPILER_PATH);
 		
 		compilerPathField = new FileFieldEditor(
-				CorePreferenceInitializer.HAXE_COMPILER_PATH, "haXe compiler:",
+				CorePreferenceInitializer.HAXE_COMPILER_PATH, "Haxe compiler:",
 				true, compilerPathComposite);
 		compilerPathField.setStringValue(initialCompilerValue);
 		compilerPathField.setEmptyStringAllowed(true);

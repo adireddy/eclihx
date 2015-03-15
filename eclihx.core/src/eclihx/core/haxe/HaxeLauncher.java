@@ -13,7 +13,7 @@ import eclihx.core.util.OSUtil;
 import eclihx.core.util.ProcessUtil;
 
 /**
- * Class launches the haXe process with the given configuration.
+ * Class launches the Haxe process with the given configuration.
  */
 public class HaxeLauncher {
 

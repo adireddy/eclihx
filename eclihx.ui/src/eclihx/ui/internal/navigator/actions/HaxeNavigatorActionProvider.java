@@ -12,7 +12,7 @@ import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
 
 /**
- * Action provider for navigator with haXe elements.
+ * Action provider for navigator with Haxe elements.
  */
 public class HaxeNavigatorActionProvider extends CommonActionProvider {
 

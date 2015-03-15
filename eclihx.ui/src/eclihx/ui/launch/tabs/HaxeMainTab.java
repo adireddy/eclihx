@@ -347,7 +347,7 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 					IHaxeLaunchConfigurationConstants.PROJECT_NAME, "");
 			
 			if (projectName == null || projectName.isEmpty()) {
-				setMessage("Choose the haXe project");
+				setMessage("Choose the Haxe project");
 				setErrorMessage(null);
 				return false;
 			}
@@ -355,7 +355,7 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 			// Build file check
 			if (buildFilesCache != null && buildFilesCache.isEmpty()) {
 				setErrorMessage(
-					"This version of EclihX only supports building based " +
+					"This version of Eclihx only supports building based " +
 					"on hxml-file. Please create one for this project before " +
 					"proceeding with launching");
 				setMessage(null);
@@ -376,8 +376,8 @@ public final class HaxeMainTab extends AbstractLaunchConfigurationTab {
 			
 			if (executablePath.isEmpty()) {
 				setErrorMessage(
-					"Please, define haXe compiler first " +
-					"(Preferences->EclihX->Compiler).");
+					"Please, define Haxe compiler first " +
+					"(Preferences->Eclihx->Compiler).");
 				setMessage(null);
 				return false;
 			}

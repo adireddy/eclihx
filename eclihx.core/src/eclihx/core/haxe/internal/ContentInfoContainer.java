@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ContentInfoContainer {
 
 	/**
-	 * Group of tips for the defined position in the haXe code.
+	 * Group of tips for the defined position in the Haxe code.
 	 */
 	@XmlElement(name = "i")
 	public ArrayList<ContentInfo> contentInfos = new ArrayList<ContentInfo>();

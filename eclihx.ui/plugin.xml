@@ -14,9 +14,9 @@
    <extension
          point="org.eclipse.ui.contexts">
       <context
-            description="Editing haXe Source Context"
+            description="Editing Haxe Source Context"
             id="eclihx.ui.haxeEditorScope"
-            name="Editing haXe Source"
+            name="Editing Haxe Source"
             parentId="org.eclipse.ui.textEditorScope">
       </context>
    </extension>
@@ -195,7 +195,7 @@
           helpContextId="eclihx.ui.launch.haxe_launch_shortcut"
           icon="icons/h_app_s.gif"
           id="eclihx.ui.launch.HaxeLaunchShortcut"
-          label="haXe application"
+          label="Haxe application"
           modes="run">
        <contextualLaunch>
           <enablement>
@@ -230,7 +230,7 @@
           allowMultiple="false"
           category="eclihx.ui.HaxeCategory"
           class="eclihx.ui.internal.ui.views.HaxeExplorerView"
-          icon="icons/eclihx-logo-small.gif"
+          icon="icons/eclihx-logo-small.png"
           id="eclihx.ui.internal.ui.views.PackageExplorerView"
           name="%haxeViews.packageExplorerName">
     </view>
@@ -251,11 +251,11 @@
             id="eclihx.ui.launch.HaxetLaunchConfigurationTabGroup"
             type="eclihx.launching.HaxeLaunchDelegate">
          <launchMode
-               description="haXe launch mode"
+               description="Haxe launch mode"
                mode="run">
          </launchMode>
          <launchMode
-               description="haXe debug mode"
+               description="Haxe debug mode"
                mode="debug"
                perspective="org.eclipse.debug.ui.DebugPerspective">
          </launchMode>
@@ -306,7 +306,7 @@
             contentProvider="eclihx.ui.internal.navigator.HaxeNavigatorContentProvider"
             id="eclihx.ui.internal.ui.utils.HaxeElementsContentProvider"
             labelProvider="eclihx.ui.internal.navigator.HaxeNavigatorLabelProvider"
-            name="haXe elements"
+            name="Haxe elements"
             priority="normal">
          <triggerPoints>
             <or>
@@ -446,7 +446,7 @@
            point="org.eclipse.core.runtime.products">
         <product
               application="eclihx.ui"
-              name="EclihX">
+              name="Eclihx">
         </product>
      </extension>
      <extension

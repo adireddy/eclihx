@@ -19,7 +19,7 @@ public class HaxeBuildFile extends HaxeElement implements IHaxeBuildFile {
 	private final IFile fFile;
 	
 	/**
-	 * haXe project of this file.
+	 * Haxe project of this file.
 	 */
 	private final IHaxeProject fHaxeProject; 
 	

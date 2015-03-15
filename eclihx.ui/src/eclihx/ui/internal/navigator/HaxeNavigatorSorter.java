@@ -10,7 +10,7 @@ import eclihx.core.haxe.model.core.IHaxeProject;
 import eclihx.core.haxe.model.core.IHaxeSourceFolder;
 
 /**
- * Sorts elements in haXe element navigator. 
+ * Sorts elements in Haxe element navigator. 
  */
 public class HaxeNavigatorSorter extends ViewerSorter {
 

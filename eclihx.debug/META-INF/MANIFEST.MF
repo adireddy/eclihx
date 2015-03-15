@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: EclihX Debug Plug-in
+Bundle-Name: Eclihx Debug Plug-in
 Bundle-SymbolicName: eclihx.debug;singleton:=true
 Bundle-Version: 0.4.0.qualifier
 Bundle-Activator: eclihx.debug.Activator

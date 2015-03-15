@@ -11,7 +11,7 @@ import eclihx.core.haxe.model.core.IHaxeProject;
 import eclihx.ui.wizards.NewBuildFileWizardPage;
 
 /**
- * Wizard for haXe build file.
+ * Wizard for Haxe build file.
  */
 public class HaxeBuildFileWizard extends AbstractMonitorWizard implements INewWizard {
 
@@ -36,7 +36,7 @@ public class HaxeBuildFileWizard extends AbstractMonitorWizard implements INewWi
 	public HaxeBuildFileWizard() {
 		super();
 		
-		setWindowTitle("New haXe Build File");
+		setWindowTitle("New Haxe Build File");
 	}
 	
 	@Override

@@ -18,7 +18,7 @@ import eclihx.ui.internal.navigator.HaxeNavigatorComparer;
 import eclihx.ui.internal.ui.EclihxUIPlugin;
 
 /**
- * View for the haXe projects structure.
+ * View for the Haxe projects structure.
  */
 public class HaxeExplorerView extends CommonNavigator implements
 		IResourceChangeListener {

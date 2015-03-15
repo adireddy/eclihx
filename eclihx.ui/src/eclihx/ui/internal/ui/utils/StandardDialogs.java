@@ -35,7 +35,7 @@ public final class StandardDialogs {
 	 * @param shell the parent shell of the dialog.
 	 * @param selectedProject the name of the originally selected project.
 	 * 
-	 * @return dialog with the haXe projects names list.
+	 * @return dialog with the Haxe projects names list.
 	 */
 	public static AbstractElementListSelectionDialog createHaxeProjectsNamesDialog(
 			Shell shell, String selectedProject) {
@@ -54,7 +54,7 @@ public final class StandardDialogs {
 		dialog.setTitle("Select Haxe Project");
 		dialog.setMessage("Enter a string to search for a project:");
 		dialog
-				.setEmptyListMessage("There are no haXe projects. You should create one first.");
+				.setEmptyListMessage("There are no Haxe projects. You should create one first.");
 
 		// Initialize the list of elements
 		String[] projectNames = EclihxCore.getDefault().getHaxeWorkspace()
@@ -67,7 +67,7 @@ public final class StandardDialogs {
 	}
 
 	/**
-	 * Create a haXe build file dialog
+	 * Create a Haxe build file dialog
 	 * 
 	 * @param shell the parent shell of the dialog.
 	 * @param haxeProject project which build files should be listed.
@@ -123,7 +123,7 @@ public final class StandardDialogs {
 	 * This method should be used for workspace relative selection dialog.
 	 * 
 	 * @param shell the parent shell of the dialog.
-	 * @return returns dialog with the list of the haXe projects in workspace.
+	 * @return returns dialog with the list of the Haxe projects in workspace.
 	 */
 	public static ElementTreeSelectionDialog createHaxeProjectsDialog(
 			Shell shell) {
@@ -133,24 +133,24 @@ public final class StandardDialogs {
 				new HaxeElementsContentProvider(new HaxeElementFilter(
 						ShowElement.Project)));
 
-		dialog.setTitle("haXe Project");
-		dialog.setMessage("Choose a haXe project:");
+		dialog.setTitle("Haxe Project");
+		dialog.setMessage("Choose a Haxe project:");
 		dialog.setHelpAvailable(false);
 
-		// Sets haXe workspace as a root of the resource tree
+		// Sets Haxe workspace as a root of the resource tree
 		dialog.setInput(EclihxCore.getDefault().getHaxeWorkspace());
 
 		return dialog;
 	}
 
 	/**
-	 * Creates standard child dialog where user can select the particular haXe
+	 * Creates standard child dialog where user can select the particular Haxe
 	 * source folder.
 	 * 
 	 * This method should be used for workspace relative selection dialog.
 	 * 
 	 * @param shell the parent shell of the dialog.
-	 * @return returns dialog with the list of the haXe source folders.
+	 * @return returns dialog with the list of the Haxe source folders.
 	 */
 	public static ElementTreeSelectionDialog createHaxeSourceFoldersDialog(
 			Shell shell) {
@@ -164,7 +164,7 @@ public final class StandardDialogs {
 		dialog.setMessage("Choose a source folder:");
 		dialog.setHelpAvailable(false);
 
-		// Sets haXe workspace as a root of the resource tree
+		// Sets Haxe workspace as a root of the resource tree
 		dialog.setInput(EclihxCore.getDefault().getHaxeWorkspace());
 
 		// Source folder validator
@@ -194,15 +194,15 @@ public final class StandardDialogs {
 	}
 
 	/**
-	 * Creates standard child dialog where user can select the particular haXe
+	 * Creates standard child dialog where user can select the particular Haxe
 	 * source folder.
 	 * 
-	 * This folder shows only source folders in the specified haXe project.
+	 * This folder shows only source folders in the specified Haxe project.
 	 * 
 	 * @param shell the parent shell of the dialog.
 	 * @param project the project which source folders should be shown.
 	 * 
-	 * @return returns dialog with the list of the haXe source folders relative
+	 * @return returns dialog with the list of the Haxe source folders relative
 	 *         the the specified project.
 	 */
 	public static ElementTreeSelectionDialog createHaxeSourceFoldersDialog(
@@ -221,13 +221,13 @@ public final class StandardDialogs {
 	}
 
 	/**
-	 * Creates standard child dialog where user can select the particular haXe
+	 * Creates standard child dialog where user can select the particular Haxe
 	 * package.
 	 * 
-	 * This folder shows only source folders in the specified haXe project.
+	 * This folder shows only source folders in the specified Haxe project.
 	 * 
 	 * @param shell the parent shell of the dialog.
-	 * @param sourceFolder haXe source folder with packages.
+	 * @param sourceFolder Haxe source folder with packages.
 	 * @return the dialog with the list of the packages.
 	 */
 	public static ElementListSelectionDialog createHaxePackagesDialog(
@@ -247,7 +247,7 @@ public final class StandardDialogs {
 					new HaxeElementsLabelProvider());
 	
 		dialog.setIgnoreCase(false);
-		dialog.setTitle("haXe Package Selection"); 
+		dialog.setTitle("Haxe Package Selection"); 
 		dialog.setMessage("Select a package:"); 
 		dialog.setEmptyListMessage("There are no packages in this source folder"); 
 		dialog.setElements(packages);

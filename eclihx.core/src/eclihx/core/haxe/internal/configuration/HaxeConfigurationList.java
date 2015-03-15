@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
- * A list of haXe configuration for execution.
+ * A list of Haxe configuration for execution.
  */
 public class HaxeConfigurationList implements Iterable<HaxeConfiguration>{
 	
@@ -14,7 +14,7 @@ public class HaxeConfigurationList implements Iterable<HaxeConfiguration>{
 	/**
 	 * Gets main configuration. By default it's a first configuration
 	 * of the list
-	 * @return Main haXe configuration
+	 * @return Main Haxe configuration
 	 * @throws InvalidConfigurationException If there's no configuration in the list. 
 	 */
 	public HaxeConfiguration getMainConfiguration() throws InvalidConfigurationException {
@@ -26,7 +26,7 @@ public class HaxeConfigurationList implements Iterable<HaxeConfiguration>{
 	}
 	
 	/**
-	 * Add one more configuration into haXe configuration list.
+	 * Add one more configuration into Haxe configuration list.
 	 * @param config New configuration. Null is NOT allowed.
 	 * @return true (as specified by Collection.add(E))
 	 */

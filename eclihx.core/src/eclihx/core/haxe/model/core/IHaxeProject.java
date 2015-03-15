@@ -11,12 +11,12 @@ import eclihx.core.haxe.internal.configuration.HaxeConfiguration;
 import eclihx.core.haxe.model.InvalidBuildFileNameException;
 
 /**
- * Interface for the haXe project.
+ * Interface for the Haxe project.
  */
 public interface IHaxeProject extends IHaxeElement {
 	
 	/**
-	 * haXe project nature.
+	 * Haxe project nature.
 	 */
 	String HAXE_PROJECT_NATURE_ID = "eclihx.core.haxenature";
 	
@@ -69,7 +69,7 @@ public interface IHaxeProject extends IHaxeElement {
 	IFile[] getBuildFiles() throws CoreException;
 	
 	/**
-	 * Get the list of wrapped haXe build files.
+	 * Get the list of wrapped Haxe build files.
 	 * @return an array of build files wrappers.
 	 * @throws CoreException
 	 */
@@ -151,7 +151,7 @@ public interface IHaxeProject extends IHaxeElement {
 	/**
 	 * Get the source folder by the wrapped resource.
 	 * @param folder the original resource.
-	 * @return the haXe source folder or <code>null<> if there are no source
+	 * @return the Haxe source folder or <code>null<> if there are no source
 	 * folder with this resource.
 	 */
 	IHaxeSourceFolder getSourceFolder(IFolder folder);	
@@ -165,7 +165,7 @@ public interface IHaxeProject extends IHaxeElement {
 	boolean isOpen();
 	
 	/**
-	 * Opens base project and do some advanced work for the haXe project
+	 * Opens base project and do some advanced work for the Haxe project
 	 * @param monitor
 	 * @throws CoreException
 	 */

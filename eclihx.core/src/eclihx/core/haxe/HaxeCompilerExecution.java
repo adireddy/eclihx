@@ -8,7 +8,7 @@ import eclihx.core.haxe.internal.configuration.HaxeConfiguration;
 import eclihx.core.haxe.internal.versioning.HaxeVersion;
 
 /**
- * Utilities methods for working with haXe compiler.
+ * Utilities methods for working with Haxe compiler.
  */
 public class HaxeCompilerExecution {
 	

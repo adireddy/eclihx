@@ -6,13 +6,13 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 /**
- * A wrapper for the haXe source folder.
+ * A wrapper for the Haxe source folder.
  */
 public interface IHaxeSourceFolder extends IHaxeElement {
 	
 	/**
-	 * Get the haXe project this folder belongs to.
-	 * @return the haXe project.
+	 * Get the Haxe project this folder belongs to.
+	 * @return the Haxe project.
 	 */
 	IHaxeProject getHaxeProject();
 	
@@ -42,7 +42,7 @@ public interface IHaxeSourceFolder extends IHaxeElement {
 			throws CoreException;
 	
 	/**
-	 * Get the array of the all haXe packages in the folder.
+	 * Get the array of the all Haxe packages in the folder.
 	 * @return the array with the packages.
 	 */
 	IHaxePackage[] getPackages();

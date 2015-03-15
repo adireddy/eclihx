@@ -98,7 +98,7 @@ public class ProjectContentAssistPage extends PropertyPage {
 					(IProject)element.getAdapter(IResource.class));
 			
 			if (haxeProject == null) {
-				EclihxUIPlugin.getLogHelper().logError("Should only be possible to select haXe projects");
+				EclihxUIPlugin.getLogHelper().logError("Should only be possible to select Haxe projects");
 			}
 		} else {
 			EclihxUIPlugin.getLogHelper().logError("Should only be possible to select on projects");

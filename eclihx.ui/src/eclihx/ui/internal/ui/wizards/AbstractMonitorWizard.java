@@ -128,7 +128,7 @@ public abstract class AbstractMonitorWizard extends Wizard {
 		
 		getShell().getDisplay().asyncExec(new Runnable() {
 			public void run() {
-				MessageDialog.openError(getShell(), "EclihX", message);
+				MessageDialog.openError(getShell(), "Eclihx", message);
 			}
 		});
 	}

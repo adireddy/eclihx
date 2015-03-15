@@ -9,7 +9,7 @@
             delegate="eclihx.launching.HaxeLaunchDelegate"
             id="eclihx.launching.HaxeLaunchDelegate"
             modes="run, debug"
-            name="haXe application"
+            name="Haxe application"
             sourceLocatorId="eclihx.launching.HaxeSourceLocator"
             sourcePathComputerId="eclihx.launching.HaxeSourcePathComputerDelegate"/>
    </extension>

@@ -7,7 +7,7 @@ import org.eclipse.jface.text.rules.FastPartitioner;
 import org.eclipse.ui.editors.text.FileDocumentProvider;
 
 /**
- * Document provider for the editor of the haXe code
+ * Document provider for the editor of the Haxe code
  */
 public class HXDocumentProvider extends FileDocumentProvider {
 

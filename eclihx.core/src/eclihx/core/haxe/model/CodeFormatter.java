@@ -1,7 +1,7 @@
 package eclihx.core.haxe.model;
 
 /**
- * haXe code simple formatter.
+ * Haxe code simple formatter.
  */
 public final class CodeFormatter {
 	

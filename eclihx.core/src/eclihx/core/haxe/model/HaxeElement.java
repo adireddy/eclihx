@@ -5,7 +5,7 @@ import org.eclipse.core.runtime.PlatformObject;
 import eclihx.core.haxe.model.core.IHaxeElement;
 
 /**
- * Common behavior for all haXe elements.
+ * Common behavior for all Haxe elements.
  */
 abstract class HaxeElement extends PlatformObject implements IHaxeElement {
 

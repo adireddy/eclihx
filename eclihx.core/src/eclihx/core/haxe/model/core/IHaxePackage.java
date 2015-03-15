@@ -6,7 +6,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 /**
- * Interface for the haXe package element.
+ * Interface for the Haxe package element.
  */
 public interface IHaxePackage extends IHaxeElement {
 
@@ -25,7 +25,7 @@ public interface IHaxePackage extends IHaxeElement {
 	/**
 	 * Get source folder.
 	 * 
-	 * @return the haXe source folder this package is situated in.
+	 * @return the Haxe source folder this package is situated in.
 	 */
 	IHaxeSourceFolder getSourceFolder();
 	
@@ -39,19 +39,19 @@ public interface IHaxePackage extends IHaxeElement {
 	/**
 	 * Checks if file with the given filename exists in the package.
 	 * 
-	 * @param haxeFileName the name of the haXe file.
+	 * @param haxeFileName the name of the Haxe file.
 	 * @return <code>true</code> if file exists in the folder.
-	 *         <code>false</code> in both cases file is not a haXe file or it
+	 *         <code>false</code> in both cases file is not a Haxe file or it
 	 *         doesn't exist in the package.
 	 */
 	boolean hasHaxeFile(String haxeFileName);
 
 	/**
-	 * Create a haXe file in the package.
+	 * Create a Haxe file in the package.
 	 * 
 	 * @param haxeFileName the name of the file to create.
 	 * @param monitor the operation monitor. <code>null</code> value is allowed.
-	 * @return newly created haXe source file.
+	 * @return newly created Haxe source file.
 	 * 
 	 * @throws CoreException if there are some errors during file creation.
 	 */
@@ -61,7 +61,7 @@ public interface IHaxePackage extends IHaxeElement {
 	/**
 	 * Get the source files in this package.
 	 * 
-	 * @return an array of haXe source files.
+	 * @return an array of Haxe source files.
 	 */
 	IHaxeSourceFile[] getHaxeSourceFiles();
 	

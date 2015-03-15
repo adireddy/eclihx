@@ -6,13 +6,13 @@ package eclihx.launching;
 public interface IHaxeLaunchConfigurationConstants {
 
 	/**
-	 * haXe compiler path. 
+	 * Haxe compiler path. 
 	 */
 	public static final String HAXE_COMPILER_PATH = 
 			EclihxLauncher.PLUGIN_ID + ".haxe_compiler";
 	
 	/**
-	 * haXe compiler attributes
+	 * Haxe compiler attributes
 	 */
 	public static final String ATTR_ARGUMENTS = 
 			EclihxLauncher.PLUGIN_ID + ".haxe_arguments";

@@ -9,7 +9,7 @@ import org.eclipse.core.runtime.Assert;
 import eclihx.core.haxe.internal.ContentInfo;
 
 /**
- * Stores a list of haXe compiler content informations for the given file offset.
+ * Stores a list of Haxe compiler content informations for the given file offset.
  */
 public class ContentInfoCache {
 	

@@ -11,7 +11,7 @@ import eclihx.ui.PluginImages;
 import eclihx.ui.wizards.NewHaxePackageWizardPage;
 
 /**
- * Wizard for the haXe package.
+ * Wizard for the Haxe package.
  */
 public class HaxePackageWizard extends 
 		AbstractMonitorWizard implements INewWizard {
@@ -34,7 +34,7 @@ public class HaxePackageWizard extends
 		super();
 		
 		setDefaultPageImageDescriptor(PluginImages.DESC_WIZBAN_NEWPACK);
-		setWindowTitle("New haXe Package");
+		setWindowTitle("New Haxe Package");
 		
 	}
 

@@ -5,7 +5,7 @@ import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.runtime.CoreException;
 
 /**
- * Nature of the haXe project
+ * Nature of the Haxe project
  * 
  * @see IProjectNature
  */

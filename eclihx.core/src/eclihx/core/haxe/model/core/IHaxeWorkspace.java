@@ -6,54 +6,54 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 /**
- * Interface for the workspace wrapper aimed to manage haXe resources.
+ * Interface for the workspace wrapper aimed to manage Haxe resources.
  */
 public interface IHaxeWorkspace extends IHaxeElement {
 
 	/**
-	 * Closes the workspace and saves haXe projects in workspace 
+	 * Closes the workspace and saves Haxe projects in workspace 
 	 */
 	void close();
 	
 	/**
-	 * Gets the haXe element wrapper for resource.
-	 * @param resource the resource which is suspected to be haXe element.
-	 * @return IHaxeElement if resource is a haXe resource and 
+	 * Gets the Haxe element wrapper for resource.
+	 * @param resource the resource which is suspected to be Haxe element.
+	 * @return IHaxeElement if resource is a Haxe resource and 
 	 * <code>null</code> in other case.
 	 */
 	IHaxeElement getHaxeElement(IResource resource);
 	
 	/**
-	 * Get the array with the all haXe project names.
-	 * @return an array with the haXe project names.
+	 * Get the array with the all Haxe project names.
+	 * @return an array with the Haxe project names.
 	 */
 	String[] getHaxeProjectsNames();
 
 	/**
-	 * Gets haXe project by name.
+	 * Gets Haxe project by name.
 	 * @param projectName the name of the project.
 	 * 
-	 * @return the reference to haXe project or null if 
+	 * @return the reference to Haxe project or null if 
 	 *         such project doesn't exist.
 	 */
 	IHaxeProject getHaxeProject(String projectName);
 	
 	/**
-	 * Gets haXe project by IProject object.
+	 * Gets Haxe project by IProject object.
 	 * @param project the project object.
 	 * 
-	 * @return the reference to haXe project or null if 
+	 * @return the reference to Haxe project or null if 
 	 *         such project doesn't exist.
 	 */
 	IHaxeProject getHaxeProject(IProject project);
 	
 	/**
-	 * Creates the haXe project.
+	 * Creates the Haxe project.
 	 * @param projectName the name of the project to create.
 	 * @param monitor the operation monitor. <code>null</code> 
 	 *        value is allowed.
 	 *        
-	 * @return the haXe project.
+	 * @return the Haxe project.
 	 *        
 	 * @throws CoreException if there are some errors during project creation.
 	 */
@@ -61,9 +61,9 @@ public interface IHaxeWorkspace extends IHaxeElement {
 			throws CoreException;
 	
 	/**
-	 * Get all haXe projects in the workspace.
+	 * Get all Haxe projects in the workspace.
 	 * 
-	 * @return An array of haXe projects.
+	 * @return An array of Haxe projects.
 	 */
 	IHaxeProject[] getHaxeProjects();
 

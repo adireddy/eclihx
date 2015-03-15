@@ -56,7 +56,7 @@ public class HXSourceViewerConfiguration extends TextSourceViewerConfiguration {
 	}
 	
 	/**
-	 * Method for configuring content assistant in haXe code. 
+	 * Method for configuring content assistant in Haxe code. 
 	 */
 	@Override
 	public IContentAssistant getContentAssistant(ISourceViewer sourceViewer) {

@@ -2,14 +2,14 @@ Colorizing:
 	Partitions(Entity responsible for dividing the document into non-overlapping regions)
 		+ Multiline Comment
 		+ Single Line Comment
-		+ haXe preprocessor
-		+- haXe code(see haXe code rules)
+		+ Haxe preprocessor
+		+- Haxe code(see Haxe code rules)
 		- bug in colorizing '"a"'
-		- haXe doc
-		+ haXe String
+		- Haxe doc
+		+ Haxe String
 		
 	Rules (Rule define parts and how they should be colored)
-		haXe code:
+		Haxe code:
 			+ Number Constants (numbers in 0xFF00 and 13e50 format left)
 			+ Chars constants 
 			+ Default Types constants (like null, true, false)
@@ -41,28 +41,28 @@ Preferences
 	Editor Page
 		+ coloring settings
 	Compiler Page
-		+ haXe compiler path
+		+ Haxe compiler path
 		- validation of the compiler 
 		
 Perspectives
-	haXe Perspective
+	Haxe Perspective
 		+ Default views in open views
 		- Update new menu
 		
 Wizards
-	New haXe Project
+	New Haxe Project
 	    + Create SRC folder
 	    + Create BIN folder
 	    + Create project hxml file
-	    + haXe project nature
-	    - Icon from the haXe perspective
-	    - Open haXe perspective after creation
+	    + Haxe project nature
+	    - Icon from the Haxe perspective
+	    - Open Haxe perspective after creation
 	    - hxml files manager
 	    
-	New haXe File
+	New Haxe File
 	    - Default hx resolution.
 		
-	New haXe Target
+	New Haxe Target
 		- select destination platform
 			- flash6
 			- flash7
@@ -86,7 +86,7 @@ Launcher
 	
 Launcher UI:
 	Launch configuration dialog (LCD):
-		+ haXe project selector
+		+ Haxe project selector
 		+ auto find output folder
 		- select hxml file (Simple implementation is ready) 
 		- configure source folders (Only one is allowed for now)
@@ -95,8 +95,8 @@ Launcher UI:
 	- Update bin folder after run
 		
 
-haXe core
-	+ abstraction for haXe projects
+Haxe core
+	+ abstraction for Haxe projects
 	+ project paths serializer	
     
 features
@@ -106,9 +106,9 @@ Required Icons:
 	- file
 	- project (small icon)
 	- project (big icon - for project wizard)
-	- haXe perspective
-	- haXe target
-	- haXe launcher (16x16, <= 256 colors)
+	- Haxe perspective
+	- Haxe target
+	- Haxe launcher (16x16, <= 256 colors)
 	- launcher main tab icon
 	
 ==== Current Task ============================

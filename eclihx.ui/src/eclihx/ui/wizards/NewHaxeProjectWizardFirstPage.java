@@ -19,7 +19,7 @@ import eclihx.core.haxe.internal.HaxeElementValidator;
 import eclihx.core.haxe.model.core.IHaxeProject;
 
 /**
- * First page of the haXe project creation wizard.
+ * First page of the Haxe project creation wizard.
  */
 public class NewHaxeProjectWizardFirstPage 
 		extends WizardNewProjectCreationPage {
@@ -52,10 +52,10 @@ public class NewHaxeProjectWizardFirstPage
 	 * Default constructor.
 	 */
 	public NewHaxeProjectWizardFirstPage() {
-		super("New haXe project");
-		setTitle("Create a haXe project");
+		super("New Haxe project");
+		setTitle("Create a Haxe project");
 		setDescription(
-				"Create a haXe project in the workspace or in an " +
+				"Create a Haxe project in the workspace or in an " +
 				"external location.");
 		checkCompiler();
 	}
@@ -197,8 +197,8 @@ public class NewHaxeProjectWizardFirstPage
 				CorePreferenceInitializer.HAXE_COMPILER_PATH).isEmpty()) {
 			
 			MessageDialog.openWarning(getShell(), "Missing Compiler Path",
-					"Please, define haXe compiler first " +
-		    			"(Preferences->EclihX->Compiler).");
+					"Please, define Haxe compiler first " +
+		    			"(Preferences->Eclihx->Compiler).");
 		}
 	}
 

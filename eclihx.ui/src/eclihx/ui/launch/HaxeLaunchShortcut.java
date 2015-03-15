@@ -5,7 +5,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorPart;
 
 /**
- * haXe launch shortcut
+ * Haxe launch shortcut
  */
 public class HaxeLaunchShortcut implements ILaunchShortcut {
 
