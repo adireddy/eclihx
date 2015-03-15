@@ -3,7 +3,7 @@ package eclihx.ui.internal.ui.editors;
 import org.eclipse.jface.text.rules.IWhitespaceDetector;
 
 /**
- * Defines the spaces characters for haXe source files.
+ * Defines the spaces characters for Haxe source files.
  * 
  * @see IWhitespaceDetector
  */

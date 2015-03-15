@@ -17,7 +17,7 @@ public final class CorePreferenceInitializer
 	private static final String PREFERENCE_PREFIX = "eclihx.core.";
 	
 	/**
-	 * Storage of the haXe compiler path.  
+	 * Storage of the Haxe compiler path.  
 	 */
 	public static final String HAXE_COMPILER_PATH = 
 		PREFERENCE_PREFIX + "haxe_compiler_path";

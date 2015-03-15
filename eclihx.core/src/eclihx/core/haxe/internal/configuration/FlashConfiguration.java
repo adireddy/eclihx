@@ -188,7 +188,7 @@ public final class FlashConfiguration extends AbstractConfiguration {
 			// TODO 5 Add file validation
 		}
 		
-		// Absence of the version is a valid situation for haXe compiler.
+		// Absence of the version is a valid situation for Haxe compiler.
 		// But if we have changed the default value of the version 
 		// we should check it.
 		if (version != null) {		

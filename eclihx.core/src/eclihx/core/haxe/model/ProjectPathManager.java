@@ -55,7 +55,7 @@ public class ProjectPathManager implements IProjectPathManager {
 	
 	/**
 	 * Default constructor.
-	 * @param project the haXe project this manager is belong to.
+	 * @param project the Haxe project this manager is belong to.
 	 */
 	private ProjectPathManager(IHaxeProject project) {
 		fProject = project;
@@ -65,7 +65,7 @@ public class ProjectPathManager implements IProjectPathManager {
 	 * Creating manager for the project and loading with values stored in the
 	 * second parameter.
 	 *  
-	 * @param project project the haXe project this manager is belong to.
+	 * @param project project the Haxe project this manager is belong to.
 	 * @param pathsStore a storage with the paths.
 	 */
 	private ProjectPathManager(IHaxeProject project, 
@@ -183,9 +183,9 @@ public class ProjectPathManager implements IProjectPathManager {
 	}
 	
 	/**
-	 * Creates a manager for the haXe project.
+	 * Creates a manager for the Haxe project.
 	 * 
-	 * @param project haXe project manager is belong to.
+	 * @param project Haxe project manager is belong to.
 	 * @return new project path manager.
 	 */
 	static public IProjectPathManager create(IHaxeProject project) {

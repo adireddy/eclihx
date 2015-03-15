@@ -12,8 +12,8 @@ import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
 import eclihx.ui.actions.OpenHaxeElementAction;
 
 /**
- * Action provider for haXe element open actions.
- * Current version supports only opening of the haXe elements with the
+ * Action provider for Haxe element open actions.
+ * Current version supports only opening of the Haxe elements with the
  * wrapped file resources. 
  */
 public class HaxeOpenNavigatorActionProvider extends CommonActionProvider {

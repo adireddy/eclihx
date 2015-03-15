@@ -23,7 +23,7 @@ import eclihx.launching.HaxeRunnerConfiguration;
 import eclihx.launching.IHaxeRunner;
 
 /**
- * Class starts the haXe compiler process. 
+ * Class starts the Haxe compiler process. 
  */
 public class HaxeRunner implements IHaxeRunner {
 	

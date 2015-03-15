@@ -33,7 +33,7 @@ import eclihx.ui.internal.ui.editors.templates.HaxeTemplatesPage;
 
 /**
  * Class extend functionality of the standard text editor to make it work with
- * haXe language source.
+ * Haxe language source.
  */
 public class HXEditor extends TextEditor {
 	

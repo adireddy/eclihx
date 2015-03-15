@@ -18,7 +18,7 @@ import eclihx.core.haxe.model.core.IHaxeSourceFolder;
 import eclihx.ui.internal.ui.EclihxUIPlugin;
 
 /**
- * Delete action for the haXe elements.
+ * Delete action for the Haxe elements.
  */
 public class DeleteHaxeElementAction
 		extends SelectionDispatchAction implements IShellProvider {
@@ -32,7 +32,7 @@ public class DeleteHaxeElementAction
 		
 		setText("Delete");
 		
-		setDescription("Deletes the selected haXe element."); 
+		setDescription("Deletes the selected Haxe element."); 
 		
 		ISharedImages workbenchImages = 
 			EclihxUIPlugin.getDefault().getWorkbench().getSharedImages();

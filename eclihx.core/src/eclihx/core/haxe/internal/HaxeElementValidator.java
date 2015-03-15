@@ -14,7 +14,7 @@ import eclihx.core.util.FileNameValidator.FileValidateVerdict;
 import eclihx.core.util.FileNameValidator.FileValidationResult;
 
 /**
- * Class validates different internal haXe entities.
+ * Class validates different internal Haxe entities.
  */
 public final class HaxeElementValidator {
 	
@@ -41,7 +41,7 @@ public final class HaxeElementValidator {
 	
 	
 	/**
-	 * Method validates the haXe package name.
+	 * Method validates the Haxe package name.
 	 * @param packageName the name to validate.
 	 * @return status of the validation. Error status has the assigned reason of
 	 *         the error.
@@ -89,9 +89,9 @@ public final class HaxeElementValidator {
 	}
 	
 	/**
-	 * Method validates the name of haXe identifier.
+	 * Method validates the name of Haxe identifier.
 	 * 
-	 * @param identifierName the haXe identifier name.
+	 * @param identifierName the Haxe identifier name.
 	 * @return status of the validation. Error status has the assigned reason of
 	 *         the error.
 	 */
@@ -123,7 +123,7 @@ public final class HaxeElementValidator {
 	}
 	
 	/**
-	 * Method validates the name of haXe build file.
+	 * Method validates the name of Haxe build file.
 	 * 
 	 * @param buildFileName the name of the file.
 	 * @return OK status if name is valid and error status with the error 
@@ -166,7 +166,7 @@ public final class HaxeElementValidator {
 	}
 	
 	/**
-	 * Method validates the name of haXe file.
+	 * Method validates the name of Haxe file.
 	 * 
 	 * @param haxeFileName the name of the file.
 	 * @return OK status if name is valid and error status with the error 
@@ -184,7 +184,7 @@ public final class HaxeElementValidator {
 					final IPath haxeFile = new Path(haxeFileName);
 					final String haxeClassName = haxeFile.removeFileExtension().toString();
 					
-					// Do special haXe name checks.
+					// Do special Haxe name checks.
 					if (!HaxeElementValidator.validateIdentifier(haxeClassName).isOK()) {
 						return createErrorStatus("File name should be a valid identifier.");
 					}
@@ -192,19 +192,19 @@ public final class HaxeElementValidator {
 					Assert.isTrue(!haxeClassName.isEmpty()); // Identifier should check it.
 					
 					if (!Character.isUpperCase(haxeClassName.charAt(0))) {
-						return createErrorStatus("haXe file name should start with upper-case letter.");
+						return createErrorStatus("Haxe file name should start with upper-case letter.");
 					}
 				}	
 				
 				break;
 				
 			case NullFileName:
-				return createErrorStatus("A haXe file name must not be null.");
+				return createErrorStatus("A Haxe file name must not be null.");
 			case Empty:
-				return createErrorStatus("A haXe file name must not be empty.");
+				return createErrorStatus("A Haxe file name must not be empty.");
 			case InvalidExtension:
 				return createErrorStatus(String.format(
-						"A haXe file name must have '%s' extension.",
+						"A Haxe file name must have '%s' extension.",
 						HaxePreferencesManager.HAXE_FILE_EXTENSION));
 			case InvalidWithMessage:
 				return createErrorStatus(validateResult.getMessage());
@@ -219,7 +219,7 @@ public final class HaxeElementValidator {
 	}
 	
 	/**
-	 * Method validates the name of haXe output folder.
+	 * Method validates the name of Haxe output folder.
 	 * 
 	 * @param outputFolderName the name of the folder.
 	 * @return OK status if name is valid and error status with the error 
@@ -250,7 +250,7 @@ public final class HaxeElementValidator {
 	}
 	
 	/**
-	 * Method validates the name of haXe source folder.
+	 * Method validates the name of Haxe source folder.
 	 * 
 	 * @param sourceFolderName the name of the folder.
 	 * @return OK status if name is valid and error status with the error 

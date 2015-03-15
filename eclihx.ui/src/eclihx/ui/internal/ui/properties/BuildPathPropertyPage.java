@@ -6,7 +6,7 @@ import org.eclipse.ui.IWorkbenchPropertyPage;
 import org.eclipse.ui.dialogs.PropertyPage;
 
 /**
- * Page for setting up project specific haXe compiler.
+ * Page for setting up project specific Haxe compiler.
  */
 public class BuildPathPropertyPage extends PropertyPage implements
 		IWorkbenchPropertyPage {

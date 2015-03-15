@@ -22,17 +22,17 @@ import eclihx.ui.internal.ui.EclihxUIPlugin;
 import eclihx.ui.internal.ui.utils.StandardDialogs;
 
 /**
- * Main page for the creation of the haXe file. 
+ * Main page for the creation of the Haxe file. 
  */
 public class NewHaxeFileWizardPage extends AbstractSelectionPage {
 	
 	/**
-	 * The haXe source folder.
+	 * The Haxe source folder.
 	 */
 	private IHaxeSourceFolder sourceFolder;
 	
 	/**
-	 * Stores selected haXe package.
+	 * Stores selected Haxe package.
 	 */
 	private IHaxePackage haxePackage;
 	
@@ -47,7 +47,7 @@ public class NewHaxeFileWizardPage extends AbstractSelectionPage {
 	private Text packageTextField;
 	
 	/**
-	 * haXe name field.
+	 * Haxe name field.
 	 */
 	private Text haxeNameField;
 
@@ -67,8 +67,8 @@ public class NewHaxeFileWizardPage extends AbstractSelectionPage {
 		
 		super(pageName, selection);
 		
-		setTitle("New haXe File");
-		setDescription("This wizard creates a new haXe file.");
+		setTitle("New Haxe File");
+		setDescription("This wizard creates a new Haxe file.");
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class NewHaxeFileWizardPage extends AbstractSelectionPage {
 	}
 	
 	/**
-	 * Handler of the haXe package select button click.
+	 * Handler of the Haxe package select button click.
 	 */
 	private void onPackageSelectButton() {
 		
@@ -256,7 +256,7 @@ public class NewHaxeFileWizardPage extends AbstractSelectionPage {
 		{
 			// Package validate			
 			if (haxePackage == null) {
-				updateStatus("haXe package is empty.");
+				updateStatus("Haxe package is empty.");
 				return;
 			}
 			
@@ -310,7 +310,7 @@ public class NewHaxeFileWizardPage extends AbstractSelectionPage {
 			}
 			
 			if (haxePackage.hasHaxeFile(haxeFileName)) {
-				updateStatus("Such haXe file already exists.");
+				updateStatus("Such Haxe file already exists.");
 				return;
 			}
 			
@@ -320,7 +320,7 @@ public class NewHaxeFileWizardPage extends AbstractSelectionPage {
 	}
 
 	/**
-	 * Generate text representation for the haXe source folder.
+	 * Generate text representation for the Haxe source folder.
 	 * 
 	 * @param folder new folder.
 	 */
@@ -365,7 +365,7 @@ public class NewHaxeFileWizardPage extends AbstractSelectionPage {
 	
 	/**
 	 * Returns the entered name for the file.
-	 * @return the haXe file name.
+	 * @return the Haxe file name.
 	 */
 	public String getFileName() {
 		return haxeNameField.getText().endsWith(".hx") ? haxeNameField.getText() : haxeNameField.getText() + ".hx";

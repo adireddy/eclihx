@@ -12,7 +12,7 @@ import eclihx.ui.internal.ui.EclihxUIPlugin;
 import eclihx.ui.internal.ui.utils.HaxeElementsContentProvider;
 
 /**
- * Content provider for haXe navigator view.
+ * Content provider for Haxe navigator view.
  */
 public class HaxeNavigatorContentProvider extends HaxeElementsContentProvider {
 

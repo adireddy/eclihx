@@ -5,7 +5,7 @@ import java.util.List;
 import eclihx.core.haxe.internal.versioning.IVersionated;
 
 /**
- * Interface for the parser of the haXe compiler output which is aimed to
+ * Interface for the parser of the Haxe compiler output which is aimed to
  * getting compile errors.
  */
 public interface IHaxeOutputErrorsParser extends IVersionated {
@@ -24,7 +24,7 @@ public interface IHaxeOutputErrorsParser extends IVersionated {
 	/**
 	 * Gives the list of compile errors from the compiler output.
 	 * 
-	 * @param output haXe compiler output.
+	 * @param output Haxe compiler output.
 	 * @param buildFile a build file path. 
 	 * @return A list of errors.
 	 */	

@@ -31,7 +31,7 @@ import eclihx.ui.internal.ui.EclihxUIPlugin;
 import eclihx.ui.utils.ConsoleViewHelper;
 
 /**
- * Content assist for the haXe code.
+ * Content assist for the Haxe code.
  */
 public final class HXContextAssist implements IContentAssistProcessor, ICompletionListener {
 	
@@ -65,7 +65,7 @@ public final class HXContextAssist implements IContentAssistProcessor, ICompleti
 	
 	
 	/**
-	 * Stores cached information from haXe compiler.
+	 * Stores cached information from Haxe compiler.
 	 */
 	final private ContentInfoCache infosCache = new ContentInfoCache();
 
@@ -208,7 +208,7 @@ public final class HXContextAssist implements IContentAssistProcessor, ICompleti
 	}
 	
 	/**
-	 * Generate proposals list from the haXe content informations list.
+	 * Generate proposals list from the Haxe content informations list.
 	 * @param offsetStart The starting position of info in the file.
 	 * @param offsetEnd The end offset for the substitution.
 	 * @param infos a list with content informations.
@@ -263,7 +263,7 @@ public final class HXContextAssist implements IContentAssistProcessor, ICompleti
 
 	
 	/**
-	 * Get the information from the haXe compiler.
+	 * Get the information from the Haxe compiler.
 	 *
 	 * @param viewer the viewer whose document is used to compute the proposals
 	 * @param offset an offset within the document for which completions should be computed

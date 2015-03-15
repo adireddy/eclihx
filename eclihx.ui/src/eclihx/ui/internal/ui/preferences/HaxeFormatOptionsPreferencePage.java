@@ -165,7 +165,7 @@ public class HaxeFormatOptionsPreferencePage  extends PreferencePage
 	}	
 		
 	/**
-	 * Gets EclihX UI plug-in preference store
+	 * Gets Eclihx UI plug-in preference store
 	 */
 	@Override
 	public IPreferenceStore getPreferenceStore() {		

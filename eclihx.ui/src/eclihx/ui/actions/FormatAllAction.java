@@ -15,7 +15,7 @@ import eclihx.ui.internal.ui.EclihxUIPlugin;
 import eclihx.ui.internal.ui.editors.hx.HXEditor;
 
 /**
- * Formats the code in the particular haXe file.
+ * Formats the code in the particular Haxe file.
  */
 public class FormatAllAction implements IEditorActionDelegate {
 	

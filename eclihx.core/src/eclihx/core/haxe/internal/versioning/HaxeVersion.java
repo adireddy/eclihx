@@ -1,7 +1,7 @@
 package eclihx.core.haxe.internal.versioning;
 
 /**
- * An abstraction for haXe compiler version. This class will be used
+ * An abstraction for Haxe compiler version. This class will be used
  * for working with compatibility.
  */
 public class HaxeVersion {
@@ -9,7 +9,7 @@ public class HaxeVersion {
 	
 	/**
 	 * Default constructor with 
-	 * @param version haXe version.
+	 * @param version Haxe version.
 	 */
 	public HaxeVersion(String version) {
 		this.version = version;

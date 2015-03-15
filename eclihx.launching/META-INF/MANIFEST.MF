@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: EclihX Launching Plug-in
+Bundle-Name: Eclihx Launching Plug-in
 Bundle-SymbolicName: eclihx.launching;singleton:=true
 Bundle-Version: 0.4.0.qualifier
 Bundle-Activator: eclihx.launching.EclihxLauncher

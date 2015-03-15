@@ -12,8 +12,8 @@ import eclihx.core.haxe.internal.HaxePreferencesManager;
 import eclihx.core.util.OSUtil;
 
 /**
- * Storage for haXe compiler configuration. This class is used by the parser of
- * haXe compiler parameters.
+ * Storage for Haxe compiler configuration. This class is used by the parser of
+ * Haxe compiler parameters.
  */
 public final class HaxeConfiguration extends AbstractConfiguration {
 
@@ -82,7 +82,7 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 	private final JSConfiguration jsConfig = new JSConfiguration();
 	private final CPPConfiguration cppConfig = new CPPConfiguration();
 	
-	// Common haXe configuration options.
+	// Common Haxe configuration options.
 	
 	/**
 	 * List of class names for haxe.exe [options] <class names...>
@@ -106,7 +106,7 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 	private String startupClass;
 
 	/**
-	 * haXe libraries (-lib).
+	 * Haxe libraries (-lib).
 	 */
 	private final LinkedList<String> libraries = new LinkedList<String>();
 
@@ -188,7 +188,7 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 	private boolean noTracesMode;
 
 	/**
-	 * Output file for generated haXe headers from swf file.
+	 * Output file for generated Haxe headers from swf file.
 	 */
 	private String swfFileForHeaders;
 
@@ -218,7 +218,7 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 	private final ArrayList<String> excludeFiles = new ArrayList<String>();
 
 	/**
-	 * Creates the string representation of the haXe build parameter by the key
+	 * Creates the string representation of the Haxe build parameter by the key
 	 * and value. Note that both values can't be <code>null</value>.
 	 * 
 	 * @param key suffix of the parameter.
@@ -237,7 +237,7 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 	}
 	
 	/**
-	 * Creates the string representation of the haXe build parameter by the key
+	 * Creates the string representation of the Haxe build parameter by the key
 	 * and value. Empty string is returned when value is equal to null.
 	 * 
 	 * @param key suffix of the parameter. Null is forbidden.
@@ -395,7 +395,7 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 	}
 
 	/**
-	 * Gets the list of haXe libraries.
+	 * Gets the list of Haxe libraries.
 	 * 
 	 * @return the libraries
 	 */
@@ -404,7 +404,7 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 	}
 
 	/**
-	 * Add haXe library to configuration
+	 * Add Haxe library to configuration
 	 * 
 	 * @param library the library to add
 	 */
@@ -723,7 +723,7 @@ public final class HaxeConfiguration extends AbstractConfiguration {
 	}
 
 	/**
-	 * Sets output file for generated haXe headers from swf file.
+	 * Sets output file for generated Haxe headers from swf file.
 	 * 
 	 * @param fileForHeader file name.
 	 */

@@ -10,7 +10,7 @@ import eclihx.core.haxe.model.core.IHaxeElement;
 import eclihx.core.haxe.model.core.IHaxePackage;
 
 /**
- * Make haXe elements to be comparable with resources.
+ * Make Haxe elements to be comparable with resources.
  */
 public class HaxeNavigatorComparer implements IElementComparer {
 	
@@ -47,10 +47,10 @@ public class HaxeNavigatorComparer implements IElementComparer {
 	}
 	
 	/**
-	 * Compares haXe element with resource.
-	 * @param element the haXe element.
+	 * Compares Haxe element with resource.
+	 * @param element the Haxe element.
 	 * @param resource the resource object
-	 * @return <code>true</code> if haXe element wraps the given resource.
+	 * @return <code>true</code> if Haxe element wraps the given resource.
 	 */
 	public boolean equals(IHaxeElement element, IResource resource) {
 		

@@ -43,7 +43,7 @@ public class PluginImages {
 	private static final String UNDEFINED = "";
 
 	/*
-	 * Keys for images available from the EclihX-UI plug-in image register.
+	 * Keys for images available from the Eclihx-UI plug-in image register.
 	 */
 	
 	/**

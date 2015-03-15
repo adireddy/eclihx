@@ -315,13 +315,13 @@ public class HaxeColorPreferencePage extends PreferencePage implements IWorkbenc
 	}
 	
 	/**
-	 * haXe source viewer options
+	 * Haxe source viewer options
 	 */
 	private final ArrayList<SyntaxPreferencesGroup> haxeOptions = 
 		new ArrayList<SyntaxPreferencesGroup>();
 	
 	/**
-	 * haXe documentation options
+	 * Haxe documentation options
 	 */
 	private final ArrayList<SyntaxPreferencesGroup> haxeDocOptions =
 		new ArrayList<SyntaxPreferencesGroup>();
@@ -348,12 +348,12 @@ public class HaxeColorPreferencePage extends PreferencePage implements IWorkbenc
 		
 		setTitle("Editors colors preferences");
 		
-		editorPartsOptionsLists.add(new Pair<String, ArrayList<SyntaxPreferencesGroup>>("haXe", haxeOptions));
-		editorPartsOptionsLists.add(new Pair<String, ArrayList<SyntaxPreferencesGroup>>("haXe doc", haxeDocOptions));
+		editorPartsOptionsLists.add(new Pair<String, ArrayList<SyntaxPreferencesGroup>>("Haxe", haxeOptions));
+		editorPartsOptionsLists.add(new Pair<String, ArrayList<SyntaxPreferencesGroup>>("Haxe doc", haxeDocOptions));
 		editorPartsOptionsLists.add(new Pair<String, ArrayList<SyntaxPreferencesGroup>>("hxml", hxmlOptions));
 		
 		{
-			// Initialize haXe code preferences
+			// Initialize Haxe code preferences
 			
 			haxeOptions.add(
 				new SyntaxPreferencesGroup(
@@ -466,7 +466,7 @@ public class HaxeColorPreferencePage extends PreferencePage implements IWorkbenc
 		}
 		
 		{
-			// Initialize haXe doc preferences
+			// Initialize Haxe doc preferences
 			haxeDocOptions.add(
 				new SyntaxPreferencesGroup(
 					"Common text",
@@ -658,7 +658,7 @@ public class HaxeColorPreferencePage extends PreferencePage implements IWorkbenc
 	}
 
 	/**
-	 * Gets EclihX UI plug-in preference store
+	 * Gets Eclihx UI plug-in preference store
 	 */
 	@Override
 	public IPreferenceStore getPreferenceStore() {

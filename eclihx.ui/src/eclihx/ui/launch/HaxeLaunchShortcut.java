@@ -11,7 +11,7 @@ import eclihx.core.haxe.model.HaxeBuildFile;
 import eclihx.launching.HaxeLaunchConfigurationUtils;
 
 /**
- * haXe launch shortcut
+ * Haxe launch shortcut
  */
 public class HaxeLaunchShortcut implements ILaunchShortcut {
 

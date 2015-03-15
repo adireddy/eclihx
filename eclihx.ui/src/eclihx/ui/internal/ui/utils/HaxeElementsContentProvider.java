@@ -20,7 +20,7 @@ import eclihx.ui.internal.ui.utils.HaxeElementFilter.ShowElement;
 
 /**
  * Class provides an information for tree representation of the 
- * all haXe elements.
+ * all Haxe elements.
  * 
  * TODO 6 Make it work not only for the IHaxeProject and IHaxeSourceFolder
  */
@@ -37,7 +37,7 @@ public class HaxeElementsContentProvider implements ITreeContentProvider {
 	protected final static Object[] NO_CHILDREN = new Object[0];
 	
 	/**
-	 * Filters the haXe elements to show.
+	 * Filters the Haxe elements to show.
 	 */
 	private final HaxeElementFilter elementsFilter;
 

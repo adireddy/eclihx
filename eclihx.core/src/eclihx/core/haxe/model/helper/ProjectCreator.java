@@ -11,7 +11,7 @@ import eclihx.core.haxe.model.InvalidBuildFileNameException;
 import eclihx.core.haxe.model.core.IHaxeProject;
 
 /**
- * Special class for creating different project haXe-projects.
+ * Special class for creating different project Haxe-projects.
  */
 public class ProjectCreator {
 	
@@ -73,7 +73,7 @@ public class ProjectCreator {
 			String buildFileName, String outFolderName, String srcFolderName, 
 			IProgressMonitor monitor) throws CoreException  {
 		
-		monitor.beginTask("Simple haXe project creation", 4);
+		monitor.beginTask("Simple Haxe project creation", 4);
 		
 		monitor.setTaskName("Creation of project: " + projectName);		
 		IHaxeProject haxeProject = EclihxCore.getDefault().getHaxeWorkspace().

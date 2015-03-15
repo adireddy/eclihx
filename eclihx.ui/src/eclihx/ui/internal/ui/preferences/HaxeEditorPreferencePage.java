@@ -5,7 +5,7 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
 /**
- * Main EclihX project page.
+ * Main Eclihx project page.
  */
 public class HaxeEditorPreferencePage extends FieldEditorPreferencePage 
 		implements IWorkbenchPreferencePage {

@@ -8,7 +8,7 @@ import eclihx.core.haxe.model.HaxeProject;
 import eclihx.ui.internal.ui.utils.HaxeElementsLabelProvider;
 
 /**
- * haXe elements label provider for the navigator view. 
+ * Haxe elements label provider for the navigator view. 
  */
 public class HaxeNavigatorLabelProvider extends HaxeElementsLabelProvider {
 

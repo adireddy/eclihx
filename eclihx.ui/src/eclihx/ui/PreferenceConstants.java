@@ -8,12 +8,12 @@ import eclihx.core.haxe.model.CodeFormatter;
 import eclihx.ui.internal.ui.EclihxUIPlugin;
 
 /**
- * Preference IDs and default values for EclihX-UI plug-in
+ * Preference IDs and default values for Eclihx-UI plug-in
  */
 @SuppressWarnings("all")
 public final class PreferenceConstants {
 	
-	//========= haXe Editor Style Settings =========//
+	//========= Haxe Editor Style Settings =========//
 	public final static String HX_EDITOR_COMMENT_COLOR = 
 		"hx_editor_comment_color";
 	public final static String HX_EDITOR_COMMENT_BOLD = 
@@ -132,7 +132,7 @@ public final class PreferenceConstants {
 	
 	/**
 	 * A named preferences that controls if problem view should always be
-	 * activated in the case of haXe build errors.
+	 * activated in the case of Haxe build errors.
 	 */
 	public final static String HAXE_ALWAYS_OPEN_PROBLEM_VIEW_ON_ERRORS =
 			"haxe_always_open_problem_view_on_errors";

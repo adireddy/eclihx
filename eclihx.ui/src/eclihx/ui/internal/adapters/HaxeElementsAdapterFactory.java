@@ -6,7 +6,7 @@ import org.eclipse.core.runtime.IAdapterFactory;
 import eclihx.core.haxe.model.core.IHaxeElement;
 
 /**
- * Adapts haXe elements to correspondence resources.
+ * Adapts Haxe elements to correspondence resources.
  */
 public class HaxeElementsAdapterFactory implements IAdapterFactory {
 

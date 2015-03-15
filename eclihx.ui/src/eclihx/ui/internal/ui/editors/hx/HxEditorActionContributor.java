@@ -7,7 +7,7 @@ import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.ui.texteditor.RetargetTextEditorAction;
 
 /**
- * haXe editor actions contributor.
+ * Haxe editor actions contributor.
  */
 public class HxEditorActionContributor extends BasicTextEditorActionContributor {
 

@@ -14,7 +14,7 @@ import eclihx.ui.internal.ui.EclihxUIPlugin;
 import eclihx.ui.wizards.NewHaxeProjectWizardFirstPage;
 
 /**
- * Wizard for the haXe project creation. 
+ * Wizard for the Haxe project creation. 
  */
 public class HaxeProjectWizard extends AbstractMonitorWizard implements INewWizard, IExecutableExtension {
 
@@ -34,7 +34,7 @@ public class HaxeProjectWizard extends AbstractMonitorWizard implements INewWiza
 	public HaxeProjectWizard() {
 		super();
 		
-		setWindowTitle("New haXe project");
+		setWindowTitle("New Haxe project");
 	}
 	
 	/*
@@ -86,7 +86,7 @@ public class HaxeProjectWizard extends AbstractMonitorWizard implements INewWiza
 					firstPage.getSourceFolderName(), 
 					monitor);
 			
-			// Switch to haXe perspective
+			// Switch to Haxe perspective
 			BasicNewProjectResourceWizard.updatePerspective(fConfigElement);
 			
 		} catch (CoreException e) {

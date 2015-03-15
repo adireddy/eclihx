@@ -22,7 +22,7 @@ import eclihx.ui.PluginImages;
 public class HaxeElementsLabelProvider extends LabelProvider {
 
 	/**
-	 * Standard label provider for showing non-specific haXe elements.
+	 * Standard label provider for showing non-specific Haxe elements.
 	 */
 	private final WorkbenchLabelProvider workcbenchProvider;
 	

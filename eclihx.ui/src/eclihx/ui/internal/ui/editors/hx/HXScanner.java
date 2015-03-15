@@ -101,7 +101,7 @@ public class HXScanner extends AbstractScanner {
 		rules.add(new BracketRule('{', '}', braceToken));
 		
 		{
-			// Add rule for haXe keywords
+			// Add rule for Haxe keywords
 			IToken wordToken = getToken(PreferenceConstants.HX_EDITOR_DEFAULT_COLOR); 
 			WordRule wr = new WordRule(new WordDetector(), wordToken);
 			

@@ -21,7 +21,7 @@ import eclihx.core.util.console.parser.core.ParseError;
 import eclihx.core.util.console.parser.core.Parser;
 
 /**
- * Class which should parse haXe builder parameters and store them
+ * Class which should parse Haxe builder parameters and store them
  * into the <code>HaxeConfigurationList</code>
  */
 public final class BuildParamParser {
@@ -414,7 +414,7 @@ public final class BuildParamParser {
 					}
 				}),
 			
-			//  --next : separate several haXe compilations
+			//  --next : separate several Haxe compilations
 			// We shouldn't meet this in parsing. This parameter should be 
 			// processed on another level of parsing.
 			
@@ -742,7 +742,7 @@ public final class BuildParamParser {
 	}
 	
 	/**
-	 * Parse haXe configuration from input string. This should be used for parsing console parameters.
+	 * Parse Haxe configuration from input string. This should be used for parsing console parameters.
 	 * @param configStr String to parse.
 	 * @param executeFolder Absolute folder path of the parser execution. Will be used for searching internal hxml files.
 	 *
@@ -757,7 +757,7 @@ public final class BuildParamParser {
 	}
 	
 	/**
-	 * Parse file with haXe configuration. 
+	 * Parse file with Haxe configuration. 
 	 * 
 	 * @param filePath Initial hxml file for parsing. 
 	 * @param executeFolder Absolute folder path of the parser execution. Will be used for searching internal hxml files.

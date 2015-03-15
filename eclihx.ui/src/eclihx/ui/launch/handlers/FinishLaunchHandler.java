@@ -106,11 +106,11 @@ public final class FinishLaunchHandler implements IStatusHandler {
 	 * Parses compile errors from the text output of the compiler.
 	 * 
 	 * @param output the string with the compiler output.
-	 * @param haxeProject the builded haXe project.
+	 * @param haxeProject the builded Haxe project.
 	 * @param buildFileName name of the build file. 
 	 * @return List of the compile errors.
 	 * 
-	 *         TODO 9 Are there exist warnings in haXe? Can't we process them.
+	 *         TODO 9 Are there exist warnings in Haxe? Can't we process them.
 	 *         TODO 4 Parsing of the errors should be moved to the launch level.
 	 */
 	private List<ICompilerError> getCompilerErrors(final String output,
@@ -221,7 +221,7 @@ public final class FinishLaunchHandler implements IStatusHandler {
 			final MessageDialogWithToggle errorDialog = MessageDialogWithToggle
 					.openYesNoQuestion(
 							window.getShell(),
-							"haXe build errors",
+							"Haxe build errors",
 							errorMessage,
 							"Always open problem view after error build",
 							false,
@@ -249,7 +249,7 @@ public final class FinishLaunchHandler implements IStatusHandler {
 	}
 
 	/**
-	 * Method for graphical notification about the haXe project launch result.
+	 * Method for graphical notification about the Haxe project launch result.
 	 * This method is expected to be called from the UI-thread.
 	 * 
 	 * @param finishInfo Information about launching result.
@@ -263,7 +263,7 @@ public final class FinishLaunchHandler implements IStatusHandler {
 
 			if (haxeProject == null) {
 				EclihxUIPlugin.getLogHelper().logError(
-						"Launching of non-haXe project");
+						"Launching of non-Haxe project");
 				return;
 			}
 

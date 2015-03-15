@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Objects of this class will store info which was got from the
- * haXe tips processor. Lately this info will be used in 
+ * Haxe tips processor. Lately this info will be used in 
  * generation CompletionProposal. 
  */
 @XmlRootElement(name = "i")
@@ -69,18 +69,18 @@ public class ContentInfo {
 	}
 
 	/**
-	 * Get the haXe documentation.
+	 * Get the Haxe documentation.
 	 * 
-	 * @return the haXe documentation string.
+	 * @return the Haxe documentation string.
 	 */
-	// TODO 2 check that this is really haXe doc.
+	// TODO 2 check that this is really Haxe doc.
 	@XmlElement(name="d")
 	public String getDoc() {
 		return doc;
 	}
 
 	/**
-	 * Set the haXe documentation string.
+	 * Set the Haxe documentation string.
 	 * 
 	 * @param haxeDoc the documentation to set.
 	 */

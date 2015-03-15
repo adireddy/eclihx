@@ -16,7 +16,7 @@ import eclihx.launching.flash.FlashDebugRunner;
 import eclihx.launching.haxe.HaxeRunner;
 
 /**
- * Start point for haXe project launching.
+ * Start point for Haxe project launching.
  * See {@link LaunchConfigurationDelegate} and org.eclipse.debug.core.launchConfigurationTypes extension point.
  */
 public class HaxeLaunchDelegate extends LaunchConfigurationDelegate{

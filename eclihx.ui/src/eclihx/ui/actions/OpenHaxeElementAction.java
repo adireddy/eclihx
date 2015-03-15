@@ -12,7 +12,7 @@ import eclihx.core.haxe.model.core.IHaxeElement;
 
 
 /**
- * Open action for the haXe element.
+ * Open action for the Haxe element.
  * Action works with the elements wrapping the {@link IFile} resource and
  * it redirects request to the {@link OpenFileAction} giving the wrapped
  * resource as a parameter.

@@ -18,7 +18,7 @@ import eclihx.ui.actions.DeleteHaxeElementAction;
 import eclihx.ui.actions.SelectionDispatchAction;
 
 /**
- * haXe elements edit group actions.
+ * Haxe elements edit group actions.
  * 
  * By now only Delete action is added to this group.
  */

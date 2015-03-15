@@ -15,7 +15,7 @@ import org.eclipse.debug.core.sourcelookup.containers.ProjectSourceContainer;
 import org.eclipse.debug.core.sourcelookup.containers.WorkspaceSourceContainer;
 
 /**
- * Compute the path for the haXe elements.
+ * Compute the path for the Haxe elements.
  * 
  * TODO 5: Finish work on this class. 
  */

@@ -4,7 +4,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IAdaptable;
 
 /**
- * Common interface to simplify working with the haXe entities.
+ * Common interface to simplify working with the Haxe entities.
  */
 public interface IHaxeElement extends IAdaptable {
 	
@@ -23,7 +23,7 @@ public interface IHaxeElement extends IAdaptable {
 	
 	/**
 	 * Get base resource.
-	 * @return the resource this haXe element wraps if any. <code>null</code>
+	 * @return the resource this Haxe element wraps if any. <code>null</code>
 	 * if there is no such resource. 
 	 */
 	IResource getBaseResource();	

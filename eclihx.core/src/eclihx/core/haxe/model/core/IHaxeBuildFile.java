@@ -14,7 +14,7 @@ public interface IHaxeBuildFile extends IHaxeElement {
 	IFile getBaseFile();
 	
 	/**
-	 * Returns the haXe project.
+	 * Returns the Haxe project.
 	 * @return the package of the file.
 	 */
 	IHaxeProject getProject();

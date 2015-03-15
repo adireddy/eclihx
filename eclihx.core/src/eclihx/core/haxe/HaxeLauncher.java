@@ -14,7 +14,7 @@ import eclihx.core.util.ProcessUtil;
 import eclihx.core.util.console.parser.core.Parser;
 
 /**
- * Class launches the haXe process with the given configuration.
+ * Class launches the Haxe process with the given configuration.
  */
 public class HaxeLauncher {
 

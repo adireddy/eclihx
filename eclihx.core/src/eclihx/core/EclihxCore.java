@@ -13,7 +13,7 @@ import eclihx.core.haxe.model.core.IHaxeWorkspace;
 public class EclihxCore extends Plugin {
 
 	/**
-	 * Wrapper for the original workspace to work with haXe language.
+	 * Wrapper for the original workspace to work with Haxe language.
 	 */
 	private IHaxeWorkspace haxeWorkspace;
 	

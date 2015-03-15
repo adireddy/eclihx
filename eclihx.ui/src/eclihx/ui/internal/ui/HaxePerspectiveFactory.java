@@ -9,12 +9,12 @@ import org.eclipse.ui.console.IConsoleConstants;
 import eclihx.ui.internal.ui.views.HaxeExplorerView;
 
 /**
- * Class for building haXe perspective
+ * Class for building Haxe perspective
  */
 public class HaxePerspectiveFactory implements IPerspectiveFactory {
 
 	/**
-	 * ID of the haXe perspective.
+	 * ID of the Haxe perspective.
 	 */
 	public final static String HAXE_PERSPECTIVE_ID = 
 			"eclihx.ui.internal.ui.HaxePerspectiveFactory";

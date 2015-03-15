@@ -8,7 +8,7 @@ import org.eclipse.core.runtime.Platform;
 import eclihx.core.EclihxCore;
 
 /**
- * Class stores OS-specific haxe file names and can check if haXe is installed.
+ * Class stores OS-specific haxe file names and can check if Haxe is installed.
  */
 public abstract class PathManager {
 	
@@ -30,21 +30,21 @@ public abstract class PathManager {
 	static public final String HAXE_HAXELIB_FILENAME = IS_PLATFORM_WIN32 ? "haxelib.exe" : "haxelib";
 	
 	/**
-	 * haXe environment variable.
+	 * Haxe environment variable.
 	 */
 	public static final String HAXE_ENVIRONMENT_VARIABLE = "HAXEPATH";
 	
 	/**
-	 * Checks if haXe installed.
-	 * @return true if haXe installed.
+	 * Checks if Haxe installed.
+	 * @return true if Haxe installed.
 	 */
 	public static boolean isInstalled() {
 		return getHaxeDirectory() != null;
 	}
 	
 	/**
-	 * haXe installation directory.
-	 * @return Tries to find installed haXe directory. null if haXe installation hasn't been found.
+	 * Haxe installation directory.
+	 * @return Tries to find installed Haxe directory. null if Haxe installation hasn't been found.
 	 */
 	public static String getHaxeDirectory() {
 		
@@ -58,8 +58,8 @@ public abstract class PathManager {
 	}
 	
 	/**
-	 * Get haXe compiler path.
-	 * @return haXe compiler path. null if haXe installation hasn't been found.
+	 * Get Haxe compiler path.
+	 * @return Haxe compiler path. null if Haxe installation hasn't been found.
 	 */
 	public static String getHaxeCompiler() {
 		

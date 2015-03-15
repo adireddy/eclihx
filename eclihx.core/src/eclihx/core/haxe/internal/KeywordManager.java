@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.HashMap;
 
 /**
- * Class will manage haXe keywords.
+ * Class will manage Haxe keywords.
  */
 public final class KeywordManager {
 	

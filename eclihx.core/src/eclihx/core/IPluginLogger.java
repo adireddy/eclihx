@@ -43,7 +43,7 @@ public interface IPluginLogger {
 			Throwable exception);
 
 	/**
-	 * Method generates status for the EclihX plug-ins.	
+	 * Method generates status for the Eclihx plug-ins.	
 	 * @param severity severity of the log message.
 	 * @param code status of the message.
 	 * @param message message to log.

@@ -9,7 +9,7 @@ import eclihx.core.haxe.model.core.IHaxeOutputFolder;
 import eclihx.core.haxe.model.core.IHaxeProject;
 
 /**
- * Wrapper of IFolder for working with haXe.
+ * Wrapper of IFolder for working with Haxe.
  */
 public class HaxeOutputFolder extends HaxeElement implements IHaxeOutputFolder {
 	
@@ -19,13 +19,13 @@ public class HaxeOutputFolder extends HaxeElement implements IHaxeOutputFolder {
 	private final IFolder fFolder;
 	
 	/**
-	 * Owner haXe project. 
+	 * Owner Haxe project. 
 	 */
 	private final IHaxeProject fHaxeProject;
 	
 	/**
 	 * Default constructor.
-	 * @param project the haXe owner project.
+	 * @param project the Haxe owner project.
 	 * @param folder the base IFolder object.
 	 */
 	public HaxeOutputFolder(IHaxeProject project, IFolder folder) {

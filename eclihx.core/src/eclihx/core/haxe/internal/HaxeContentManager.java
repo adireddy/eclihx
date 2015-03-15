@@ -5,14 +5,14 @@ import eclihx.core.haxe.model.core.IHaxePackage;
 import eclihx.core.haxe.model.core.IHaxeSourceFile;
 
 /**
- * haXe file content singleton
+ * Haxe file content singleton
  */
 public final class HaxeContentManager {
 	
 	private static HaxeContentManager _instance = null;
 	
 	/**
-	 * This variable has the true value if new haXe file in default
+	 * This variable has the true value if new Haxe file in default
 	 * package should automatically include "package ;" string
 	 */
 	private boolean isEmptyPackagesEnabled;
@@ -50,7 +50,7 @@ public final class HaxeContentManager {
 	/**
 	 * Add content to file except package declaration.
 	 * 
-	 * @param haxeFile haXe file for content generation.
+	 * @param haxeFile Haxe file for content generation.
 	 * @return file content.
 	 */
 	public String createHaxeContent(IHaxeSourceFile haxeFile) {
